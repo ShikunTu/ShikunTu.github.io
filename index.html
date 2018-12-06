@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>涂世坤博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="涂世坤Blog | ios">
@@ -12,7 +12,6 @@
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="涂世坤博客">
 <meta property="og:description" content="涂世坤Blog | ios">
-<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="涂世坤博客">
 <meta name="twitter:description" content="涂世坤Blog | ios">
@@ -26,7 +25,7 @@
   
 
 </head>
-</html>
+
 <body>
   <div id="container">
     <div class="left-col">
@@ -35,7 +34,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img src="https://www.jianshu.com/u/f5a30e4d2a3c" class="js-avatar">
+			<img src="http://upload.jianshu.io/users/upload_avatars/1944178/5c95d50c5d2c.gif?imageMogr/thumbnail/90x90/quality/100" class="js-avatar">
 			
 		</a>
 
@@ -113,7 +112,7 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 				
-					<img src="https://www.jianshu.com/u/f5a30e4d2a3c" class="js-avatar">
+					<img src="http://upload.jianshu.io/users/upload_avatars/1944178/5c95d50c5d2c.gif?imageMogr/thumbnail/90x90/quality/100" class="js-avatar">
 				
 			</div>
 			<hgroup>
@@ -157,10 +156,10 @@
       <div class="body-wrap">
         
   
-    <article id="post-dealloc用法" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-dealloc用法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy">
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -181,8 +180,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (void)dealloc &#123;</span><br><span class="line">    // 移除观察者</span><br><span class="line">    // 移除通知</span><br><span class="line">    // 非Objc对象内存的释放，如CFRelease(...)</span><br><span class="line">    // ... //</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>对比发现:</strong></p>
 <p>1.对象的实例变量释放不见了<br>2.没有显示的调用<code>[super dealloc]</code>,上层的析构不见了<br>
-        </p><p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/08/dealloc用法/#more">more >></a>
+        <p class="article-more-link">
+          <a class="article-more-a"  href="/2018/08/08/dealloc用法/#more">more >></a>
         </p>
       
     </div>
@@ -214,10 +213,10 @@
 
 
   
-    <article id="post-深入探讨Block循环引用" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-深入探讨Block循环引用" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy">
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -246,8 +245,8 @@
 <p>简单的调用</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">id obj = objc_msgSend(NSObject, @selector(alloc));</span><br><span class="line">objc_msgSend(obj,selector(init));</span><br><span class="line">objc_release(obj);</span><br></pre></td></tr></table></figure>
 <p>由于在<code>ARC</code>下,会自动插入<code>release</code>代码,所以不难理解<br>
-        </p><p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/14/深入探讨Block循环引用/#more">more >></a>
+        <p class="article-more-link">
+          <a class="article-more-a"  href="/2018/07/14/深入探讨Block循环引用/#more">more >></a>
         </p>
       
     </div>
@@ -279,10 +278,10 @@
 
 
   
-    <article id="post-盒子模型" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-盒子模型" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy">
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -368,7 +367,7 @@
 </li>
 </ul>
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/盒子模型/#more">more >></a>
+          <a class="article-more-a"  href="/2018/07/10/盒子模型/#more">more >></a>
         </p>
       
     </div>
@@ -400,10 +399,10 @@
 
 
   
-    <article id="post-iOS核心动画技巧学习-CALayer常用属性2" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-iOS核心动画技巧学习-CALayer常用属性2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy">
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -424,10 +423,10 @@
 <li><code>shadowColor</code> – 默认是黑色, <code>CGColorRef</code> 类型</li>
 <li><code>shadowOffset</code> – 默认{0,-3}, <code>CGSize</code> 类型;第一个参数控制阴影横向位移,第二个参数控制纵向位移,默认是阴影相对于Y轴有3个点的向上偏移;此处默认向上偏移是因为虽然 <code>Core Animation</code> 是为iOS创建的私有动画框架,但是却是先在 Mac OS上面世的,而且iOS和Mac OS的Y轴是颠倒的.在Mac上, <code>shadowOffset</code> 默认值是阴影偏下的<img src="http://oxn0lcico.bkt.clouddn.com/Snip20180105_32-min.png" alt="">
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/#more">more >></a>
+          <a class="article-more-a"  href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/#more">more >></a>
         </p>
       
-    </li></ul></li></ul></div>
+    </div>
     <div class="article-info article-info-index">
       
       <a href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/" class="archive-article-date">
@@ -456,10 +455,10 @@
 
 
   
-    <article id="post-iOS核心动画技巧学习-CALayer处理事件" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-iOS核心动画技巧学习-CALayer处理事件" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy">
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -480,10 +479,10 @@
 <h6 id="containtPoint"><a href="#containtPoint" class="headerlink" title="-containtPoint"></a><code>-containtPoint</code></h6><ul>
 <li>接收一个本图层坐标系下的 <code>CGPoint</code>,如果这个点在图层的 <code>frame</code> 范围内返回 <code>YES</code><img src="http://oxn0lcico.bkt.clouddn.com/20180105141626.gif" alt="">
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/#more">more >></a>
+          <a class="article-more-a"  href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/#more">more >></a>
         </p>
       
-    </li></ul></div>
+    </div>
     <div class="article-info article-info-index">
       
       <a href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/" class="archive-article-date">
@@ -512,10 +511,10 @@
 
 
   
-    <article id="post-iOS核心动画技巧学习-布局" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-iOS核心动画技巧学习-布局" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy">
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -541,10 +540,10 @@
 <li><code>frame</code> 属性是依据 <code>bounds</code> <code>position</code> <code>transform</code> 计算而得的,其中的一个值发生改变, <code>frame</code> 也会改变,反之亦然</li>
 <li>当对图层做变换(旋转或缩放)的时候, <code>frame</code>实际上代表了覆盖在图层旋转之后的整个轴对齐的矩形区域,此时 <code>frame</code> 的宽高和 <code>bounds</code> 的宽高不一样<img src="http://oxn0lcico.bkt.clouddn.com/Snip20180104_23-min.png" alt="">
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/05/iOS核心动画技巧学习-布局/#more">more >></a>
+          <a class="article-more-a"  href="/2018/01/05/iOS核心动画技巧学习-布局/#more">more >></a>
         </p>
       
-    </li></ul></li></ul></div>
+    </div>
     <div class="article-info article-info-index">
       
       <a href="/2018/01/05/iOS核心动画技巧学习-布局/" class="archive-article-date">
@@ -573,10 +572,10 @@
 
 
   
-    <article id="post-iOS核心动画技巧学习-drawRect方法" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-iOS核心动画技巧学习-drawRect方法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy">
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -597,10 +596,10 @@
 <li><code>-drawRect</code> 默认是没有实现的,因为对 <code>UIView</code> 来说,这个图层的图片不是必须的,它并不在意图层上到底是单调的颜色还是一个图片的实例;如果 <code>UIView</code> 检测到了 <code>-drawRect</code> 方法被调用了,它就会给视图分配一个图层里的图片,这个图层里图片的像素尺寸等于视图大小乘以 <code>contentsScale</code> 的值</li>
 <li>但是如果不需要图层里面的图片,就不要啊创建,因为会造成CPU资源和内存的浪费(苹果也是这样建议的,如果没有自定义的任务就不要在子类中写一个空的 <code>-drawRect</code> 方法)
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/#more">more >></a>
+          <a class="article-more-a"  href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/#more">more >></a>
         </p>
       
-    </li></ol></li></ol></div>
+    </div>
     <div class="article-info article-info-index">
       
       <a href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/" class="archive-article-date">
@@ -629,10 +628,10 @@
 
 
   
-    <article id="post-iOS核心动画技巧学习-CALayer常用属性" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-iOS核心动画技巧学习-CALayer常用属性" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy">
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -654,10 +653,10 @@
 <li>但是在iOS平台将<code>UIImage</code>赋值给它,编译会通过,然后你得到的图层将是空白的<img src="http://oxn0lcico.bkt.clouddn.com/Snip20180103_9.png" alt=""></li>
 <li>但是其实我们真正要赋值的类型应该是<code>CGImageRef</code>,是一个指向<code>CGImage</code>结构的指针;不过<code>UIImage</code>有一个<code>CGimage</code>属性,它返回一个<code>CGImageRef</code>,点击进去<code>UIImage</code>的头文件可以看到:<code>@property(nullable, nonatomic,readonly) CGImageRef CGImage; // returns underlying CGImageRef or nil if CIImage based</code>
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/#more">more >></a>
+          <a class="article-more-a"  href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/#more">more >></a>
         </p>
       
-    </li></ul></li></ul></li></ul></div>
+    </div>
     <div class="article-info article-info-index">
       
       <a href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/" class="archive-article-date">
@@ -686,10 +685,10 @@
 
 
   
-    <article id="post-iOS核心动画技巧学习-CALayer的历史追溯" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-iOS核心动画技巧学习-CALayer的历史追溯" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy">
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -757,10 +756,10 @@
 
 
   
-    <article id="post-终端提交代码到github" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-终端提交代码到github" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy">
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">

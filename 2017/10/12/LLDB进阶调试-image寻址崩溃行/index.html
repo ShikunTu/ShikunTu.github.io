@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>LLDB进阶调试--image寻址崩溃行 | 涂世坤博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="出现场景  开发中难免会遇到这种情况:即时打了全局断点,程序还是崩溃在main函数处;此时我们需要利用image寻址,通过堆栈信息来找到崩溃行,从而找出问题所在并解决问题.  模拟现象">
+  <meta name="description" content="出现场景
+ 开发中难免会遇到这种情况:即时打了全局断点,程序还是崩溃在main函数处;此时我们需要利用image寻址,通过堆栈信息来找到崩溃行,从而找出问题所在并解决问题.
+
+模拟现象">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LLDB进阶调试--image寻址崩溃行">
 <meta property="og:url" content="http://yoursite.com/2017/10/12/LLDB进阶调试-image寻址崩溃行/index.html">
 <meta property="og:site_name" content="涂世坤博客">
-<meta property="og:description" content="出现场景  开发中难免会遇到这种情况:即时打了全局断点,程序还是崩溃在main函数处;此时我们需要利用image寻址,通过堆栈信息来找到崩溃行,从而找出问题所在并解决问题.  模拟现象">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:description" content="出现场景
+ 开发中难免会遇到这种情况:即时打了全局断点,程序还是崩溃在main函数处;此时我们需要利用image寻址,通过堆栈信息来找到崩溃行,从而找出问题所在并解决问题.
+
+模拟现象">
 <meta property="og:image" content="http://oxn0lcico.bkt.clouddn.com/blogimagesimage%E5%AF%BB%E5%9D%80.png">
 <meta property="og:updated_time" content="2017-10-12T06:49:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LLDB进阶调试--image寻址崩溃行">
-<meta name="twitter:description" content="出现场景  开发中难免会遇到这种情况:即时打了全局断点,程序还是崩溃在main函数处;此时我们需要利用image寻址,通过堆栈信息来找到崩溃行,从而找出问题所在并解决问题.  模拟现象">
+<meta name="twitter:description" content="出现场景
+ 开发中难免会遇到这种情况:即时打了全局断点,程序还是崩溃在main函数处;此时我们需要利用image寻址,通过堆栈信息来找到崩溃行,从而找出问题所在并解决问题.
+
+模拟现象">
 <meta name="twitter:image" content="http://oxn0lcico.bkt.clouddn.com/blogimagesimage%E5%AF%BB%E5%9D%80.png">
   
     <link rel="alternative" href="/atom.xml" title="涂世坤博客" type="application/atom+xml">
@@ -29,7 +37,7 @@
   
 
 </head>
-</html>
+
 <body>
   <div id="container">
     <div class="left-col">
@@ -38,7 +46,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img src="https://www.jianshu.com/u/f5a30e4d2a3c" class="js-avatar">
+			<img src="http://upload.jianshu.io/users/upload_avatars/1944178/5c95d50c5d2c.gif?imageMogr/thumbnail/90x90/quality/100" class="js-avatar">
 			
 		</a>
 
@@ -116,7 +124,7 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 				
-					<img src="https://www.jianshu.com/u/f5a30e4d2a3c" class="js-avatar">
+					<img src="http://upload.jianshu.io/users/upload_avatars/1944178/5c95d50c5d2c.gif?imageMogr/thumbnail/90x90/quality/100" class="js-avatar">
 				
 			</div>
 			<hgroup>
@@ -158,10 +166,10 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-LLDB进阶调试-image寻址崩溃行" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <article id="post-LLDB进阶调试-image寻址崩溃行" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy">
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">

@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>iOS核心动画技巧学习 -- 布局 | 涂世坤博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="UIView: frame bounds center CALayer: frame bounds position  frame : 代表了图层外部坐标(在父视图上占据的空间) bounds: 是内部坐标({0,0},通常是当前图层的左上角) center 视图的中心点 position 代表当前图层相对于图层的锚点(anchorPoint)所在父层中的位置 frame 属性是依据 bound">
+  <meta name="description" content="UIView: frame bounds center
+CALayer: frame bounds position
+
+frame : 代表了图层外部坐标(在父视图上占据的空间)
+bounds: 是内部坐标({0,0},通常是当前图层的左上角)
+center 视图的中心点
+position 代表当前图层相对于图层的锚点(anchorPoint)所在父层中的位置
+frame 属性是依据 bound">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS核心动画技巧学习 -- 布局">
 <meta property="og:url" content="http://yoursite.com/2018/01/05/iOS核心动画技巧学习-布局/index.html">
 <meta property="og:site_name" content="涂世坤博客">
-<meta property="og:description" content="UIView: frame bounds center CALayer: frame bounds position  frame : 代表了图层外部坐标(在父视图上占据的空间) bounds: 是内部坐标({0,0},通常是当前图层的左上角) center 视图的中心点 position 代表当前图层相对于图层的锚点(anchorPoint)所在父层中的位置 frame 属性是依据 bound">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:description" content="UIView: frame bounds center
+CALayer: frame bounds position
+
+frame : 代表了图层外部坐标(在父视图上占据的空间)
+bounds: 是内部坐标({0,0},通常是当前图层的左上角)
+center 视图的中心点
+position 代表当前图层相对于图层的锚点(anchorPoint)所在父层中的位置
+frame 属性是依据 bound">
 <meta property="og:image" content="http://oxn0lcico.bkt.clouddn.com/Snip20180104_23-min.png">
 <meta property="og:image" content="http://oxn0lcico.bkt.clouddn.com/Snip20180105_24-min.png">
 <meta property="og:image" content="http://oxn0lcico.bkt.clouddn.com/Snip20180105_29-min.png">
@@ -20,7 +33,14 @@
 <meta property="og:updated_time" content="2018-01-05T03:41:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS核心动画技巧学习 -- 布局">
-<meta name="twitter:description" content="UIView: frame bounds center CALayer: frame bounds position  frame : 代表了图层外部坐标(在父视图上占据的空间) bounds: 是内部坐标({0,0},通常是当前图层的左上角) center 视图的中心点 position 代表当前图层相对于图层的锚点(anchorPoint)所在父层中的位置 frame 属性是依据 bound">
+<meta name="twitter:description" content="UIView: frame bounds center
+CALayer: frame bounds position
+
+frame : 代表了图层外部坐标(在父视图上占据的空间)
+bounds: 是内部坐标({0,0},通常是当前图层的左上角)
+center 视图的中心点
+position 代表当前图层相对于图层的锚点(anchorPoint)所在父层中的位置
+frame 属性是依据 bound">
 <meta name="twitter:image" content="http://oxn0lcico.bkt.clouddn.com/Snip20180104_23-min.png">
   
     <link rel="alternative" href="/atom.xml" title="涂世坤博客" type="application/atom+xml">
@@ -32,7 +52,7 @@
   
 
 </head>
-</html>
+
 <body>
   <div id="container">
     <div class="left-col">
@@ -41,7 +61,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img src="https://www.jianshu.com/u/f5a30e4d2a3c" class="js-avatar">
+			<img src="http://upload.jianshu.io/users/upload_avatars/1944178/5c95d50c5d2c.gif?imageMogr/thumbnail/90x90/quality/100" class="js-avatar">
 			
 		</a>
 
@@ -119,7 +139,7 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 				
-					<img src="https://www.jianshu.com/u/f5a30e4d2a3c" class="js-avatar">
+					<img src="http://upload.jianshu.io/users/upload_avatars/1944178/5c95d50c5d2c.gif?imageMogr/thumbnail/90x90/quality/100" class="js-avatar">
 				
 			</div>
 			<hgroup>
@@ -161,10 +181,10 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-iOS核心动画技巧学习-布局" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <article id="post-iOS核心动画技巧学习-布局" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy">
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>NSLog的调试技巧 | 涂世坤博客</title>
+  <title>NSLog的调试技巧 | 涂世坤の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="问题在开发中,难免会进行NSLog调试,但是我们知道NSLog非常耗性能,在程序发布的时候最好把NSLog都去掉,但是这样一来工程量比较大
 解决方案1.项目中创建pch文件,将NSLog定义为宏
@@ -12,7 +12,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="NSLog的调试技巧">
 <meta property="og:url" content="http://yoursite.com/2016/12/28/NSLog的调试技巧/index.html">
-<meta property="og:site_name" content="涂世坤博客">
+<meta property="og:site_name" content="涂世坤の博客">
 <meta property="og:description" content="问题在开发中,难免会进行NSLog调试,但是我们知道NSLog非常耗性能,在程序发布的时候最好把NSLog都去掉,但是这样一来工程量比较大
 解决方案1.项目中创建pch文件,将NSLog定义为宏
 1234567891011// 保证 #ifdef 中的宏定义只会在 OC 的代码中被引用// 否则，一旦引入 C/C++ 的代码或者框架，就会出错！#ifdef __OBJC__#ifdef DEBUG">
@@ -26,7 +26,7 @@
 1234567891011// 保证 #ifdef 中的宏定义只会在 OC 的代码中被引用// 否则，一旦引入 C/C++ 的代码或者框架，就会出错！#ifdef __OBJC__#ifdef DEBUG">
 <meta name="twitter:image" content="http://p1.bpimg.com/1949/47dab29307c89b04.png">
   
-    <link rel="alternative" href="/atom.xml" title="涂世坤博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="涂世坤の博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.ico">

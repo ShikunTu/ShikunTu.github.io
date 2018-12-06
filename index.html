@@ -159,48 +159,58 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-dealloc用法" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/06/hello-world/">Hello World</a>
+      <a class="article-title" href="/2018/08/08/dealloc用法/">dealloc用法</a>
     </h1>
   
 
         
-        <a href="/2018/12/06/hello-world/" class="archive-article-date">
-  	<time datetime="2018-12-06T06:17:04.620Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-06</time>
+        <a href="/2018/08/08/dealloc用法/" class="archive-article-date">
+  	<time datetime="2018-08-08T12:24:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p><strong>MRC</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (void)dealloc &#123;</span><br><span class="line">    self.array = nil;</span><br><span class="line">    self.string = nil;</span><br><span class="line">    // 移除观察者</span><br><span class="line">    // 移除通知</span><br><span class="line">    // 非Objc对象内存的释放，如CFRelease(...)</span><br><span class="line">    // ... //</span><br><span class="line">    [super dealloc];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>ARC</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (void)dealloc &#123;</span><br><span class="line">    // 移除观察者</span><br><span class="line">    // 移除通知</span><br><span class="line">    // 非Objc对象内存的释放，如CFRelease(...)</span><br><span class="line">    // ... //</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>对比发现:</strong></p>
+<p>1.对象的实例变量释放不见了<br>2.没有显示的调用<code>[super dealloc]</code>,上层的析构不见了<br>
+        
+          <a class="article-more-a" href="/2018/08/08/dealloc用法/#more">more >></a>
+        
       
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/06/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/08/08/dealloc用法/">展开全文 >></a>
         </p>
       
 
@@ -230,6 +240,841 @@
 
 
   
+    <article id="post-深入探讨Block循环引用" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/14/深入探讨Block循环引用/">深入探讨Block循环引用</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/14/深入探讨Block循环引用/" class="archive-article-date">
+  	<time datetime="2018-07-13T16:18:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="循环引用由来"><a href="#循环引用由来" class="headerlink" title="循环引用由来"></a>循环引用由来</h3><p>俩个对象相互强引用,俩个对象的<code>retainCount</code>一直无法为0,内存无法释放造成内存泄漏;<br>多个对象同理;</p>
+<h3 id="一-strong-weak实现原理"><a href="#一-strong-weak实现原理" class="headerlink" title="一. __strong __weak实现原理"></a>一. <code>__strong</code> <code>__weak</code>实现原理</h3><blockquote>
+<p>所有权修饰:符:<code>__strong</code>,<code>__weak</code>,<code>__unsafe_unretained</code>,<code>__autoreleasing</code>;<br>所有权修饰符默认不写是<code>__strong</code></p>
+</blockquote>
+<h5 id="strong示例"><a href="#strong示例" class="headerlink" title="__strong示例"></a><code>__strong</code>示例</h5><blockquote>
+<p>对象持有自己<br>生成的时候用<code>alloc/new/copy/mutableCopy</code></p>
+</blockquote>
+<p>声明一个<code>__strong</code>对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">id __strong obj = [[NSObject alloc] init];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>LLVM编译器转换为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id __attribute__((objc_ownership(strong))) obj = ((NSObject *(*)(id, SEL))(void *)objc_msgSend)((id)((NSObject *(*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass(&quot;NSObject&quot;), sel_registerName(&quot;alloc&quot;)), sel_registerName(&quot;init&quot;));</span><br></pre></td></tr></table></figure>
+<p>简单的调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">id obj = objc_msgSend(NSObject, @selector(alloc));</span><br><span class="line">objc_msgSend(obj,selector(init));</span><br><span class="line">objc_release(obj);</span><br></pre></td></tr></table></figure>
+<p>由于在<code>ARC</code>下,会自动插入<code>release</code>代码,所以不难理解<br>
+        
+          <a class="article-more-a" href="/2018/07/14/深入探讨Block循环引用/#more">more >></a>
+        
+      
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/14/深入探讨Block循环引用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-盒子模型" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/盒子模型/">盒子模型</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/10/盒子模型/" class="archive-article-date">
+  	<time datetime="2018-07-10T15:21:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>好久没有更新博客了,前段时间家里有事,加上刚换了新公司,一直在忙于熟悉业务,没时间更新博客(主要是懒病犯了),新公司最近在忙于小程序推广,时间紧迫加上人员不足,因此也加入了小程序队伍,今天先学习下盒子模型</p>
+</blockquote>
+<ul>
+<li>元素设置为<code>dispaly:flex</code> <code>display:inlin-flex</code>称为<strong>伸缩容器</strong>;</li>
+<li>伸缩容器内的元素撑为<strong>伸缩项目</strong>;</li>
+<li>伸缩容器有俩根轴,默认横向<strong>主轴</strong>,纵向是<strong>交叉轴</strong></li>
+</ul>
+<h3 id="伸缩容器的属性"><a href="#伸缩容器的属性" class="headerlink" title="伸缩容器的属性"></a>伸缩容器的属性</h3><ul>
+<li><code>display</code><ul>
+<li>判断是否为伸缩容器: <code>display:flex</code>,<code>display:inlin-flex</code></li>
+<li><code>flex</code>:块级</li>
+<li><code>inline-flex</code>:行内级</li>
+</ul>
+</li>
+<li><code>flex-deraction</code><ul>
+<li>指定主轴方向</li>
+<li><code>row</code> 默认 <strong>横向</strong><ul>
+<li>横向 从左到右排</li>
+</ul>
+</li>
+<li><code>row-reverse</code><ul>
+<li>横向 从右到左排</li>
+</ul>
+</li>
+<li><code>column</code> <strong>纵向</strong><ul>
+<li>纵向 从上到下排</li>
+</ul>
+</li>
+<li><code>column-reverse</code><ul>
+<li>纵向 从下到上排</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>flex-wrap</code><ul>
+<li>判断主轴方向空间不够,换行问题</li>
+<li><code>nowrap</code> 不换</li>
+<li><code>wrap</code> 九宫格排列换</li>
+<li><code>wrap-reverse</code> 跟wrap相反</li>
+</ul>
+</li>
+<li><code>flex-flow</code><ul>
+<li>是<code>flex-deraction</code>和<code>flex-deraction</code>缩写,连写俩个属性</li>
+<li><code>flex-wrap</code>:<code>flex-deraction</code> <code>flex-deraction</code></li>
+</ul>
+</li>
+<li><code>justify-content</code><ul>
+<li>伸缩项目沿着主轴的对齐方式</li>
+<li><code>flex-start</code> 默认值 向起始位置靠齐</li>
+<li><code>flex-end</code> 向结束位置靠齐</li>
+<li><code>center</code> 向中间靠齐</li>
+<li><code>space-between</code> 平均分布,第一个在初始,最后一个在末端</li>
+<li><code>space-around</code> 平均分布,俩端留一半空间</li>
+</ul>
+</li>
+<li><code>algin-items</code><ul>
+<li>伸缩项目在交叉轴(垂直于主轴)上的对齐方式</li>
+<li><code>flex-start</code> 默认值 向起始位置靠齐</li>
+<li><code>flex-end</code> 向结束位置靠齐</li>
+<li><code>center</code> 向中间靠齐</li>
+<li><code>baseline</code> 基线对齐 类似垂直y对齐</li>
+<li><code>stretch</code> 在交叉轴拉伸充满整个伸缩容器</li>
+</ul>
+</li>
+<li><code>align-content</code><ul>
+<li>调整伸缩项目出现换行后在交叉轴上的对齐方式,类似伸缩项目在主轴上使用<code>justify-content</code></li>
+</ul>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2018/07/10/盒子模型/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/10/盒子模型/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-iOS核心动画技巧学习-CALayer常用属性2" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/">iOS核心动画技巧学习-CALayer常用属性2</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/" class="archive-article-date">
+  	<time datetime="2018-01-09T02:19:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h6 id="阴影"><a href="#阴影" class="headerlink" title="阴影"></a>阴影</h6><p>阴影作为一个iOS的常见特性,可以达到图层深度暗示的效果,更多的目的是单纯的装饰(┑(￣Д ￣)┍)</p>
+<ul>
+<li><code>shadowOpacity</code>—- 默认值是0,范围是(0-1),改变这个值,阴影就可以显示在任意图层之下 ,若想自定义,请往下看<ul>
+<li><code>shadowColor</code> – 默认是黑色, <code>CGColorRef</code> 类型</li>
+<li><code>shadowOffset</code> – 默认{0,-3}, <code>CGSize</code> 类型;第一个参数控制阴影横向位移,第二个参数控制纵向位移,默认是阴影相对于Y轴有3个点的向上偏移;此处默认向上偏移是因为虽然 <code>Core Animation</code> 是为iOS创建的私有动画框架,但是却是先在 Mac OS上面世的,而且iOS和Mac OS的Y轴是颠倒的.在Mac上, <code>shadowOffset</code> 默认值是阴影偏下的<img src="http://oxn0lcico.bkt.clouddn.com/Snip20180105_32-min.png" alt="">
+        
+          <a class="article-more-a" href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/#more">more >></a>
+        
+      
+
+      
+    </li></ul></li></ul></div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-iOS核心动画技巧学习-CALayer处理事件" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/">iOS核心动画技巧学习 - CALayer处理事件</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/" class="archive-article-date">
+  	<time datetime="2018-01-05T06:19:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>CALayer 并不关心任何的响应链事件,所以也不能直接处理触摸事件或者手势;但是它有俩个方法帮你处理事件 <code>-containsPoint</code> 和 <code>hitTest</code></p>
+</blockquote>
+<h6 id="containtPoint"><a href="#containtPoint" class="headerlink" title="-containtPoint"></a><code>-containtPoint</code></h6><ul>
+<li>接收一个本图层坐标系下的 <code>CGPoint</code>,如果这个点在图层的 <code>frame</code> 范围内返回 <code>YES</code><img src="http://oxn0lcico.bkt.clouddn.com/20180105141626.gif" alt="">
+        
+          <a class="article-more-a" href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/#more">more >></a>
+        
+      
+
+      
+    </li></ul></div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-iOS核心动画技巧学习-布局" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/05/iOS核心动画技巧学习-布局/">iOS核心动画技巧学习 -- 布局</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/05/iOS核心动画技巧学习-布局/" class="archive-article-date">
+  	<time datetime="2018-01-05T03:38:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>UIView: <code>frame</code> <code>bounds</code> <code>center</code></li>
+<li><p>CALayer: <code>frame</code> <code>bounds</code> <code>position</code></p>
+<ul>
+<li>frame : 代表了图层外部坐标(在父视图上占据的空间)</li>
+<li>bounds: 是内部坐标({0,0},通常是当前图层的左上角)</li>
+<li>center 视图的中心点</li>
+<li>position 代表当前图层相对于图层的锚点(<code>anchorPoint</code>)所在父层中的位置</li>
+<li><code>frame</code> 属性是依据 <code>bounds</code> <code>position</code> <code>transform</code> 计算而得的,其中的一个值发生改变, <code>frame</code> 也会改变,反之亦然</li>
+<li>当对图层做变换(旋转或缩放)的时候, <code>frame</code>实际上代表了覆盖在图层旋转之后的整个轴对齐的矩形区域,此时 <code>frame</code> 的宽高和 <code>bounds</code> 的宽高不一样<img src="http://oxn0lcico.bkt.clouddn.com/Snip20180104_23-min.png" alt="">
+        
+          <a class="article-more-a" href="/2018/01/05/iOS核心动画技巧学习-布局/#more">more >></a>
+        
+      
+
+      
+    </li></ul></li></ul></div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/05/iOS核心动画技巧学习-布局/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-iOS核心动画技巧学习-drawRect方法" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/">iOS核心动画技巧学习 -- drawRect方法</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/" class="archive-article-date">
+  	<time datetime="2018-01-04T06:39:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>-drawRect 简介<ol start="2">
+<li>除了使用给 <code>contents</code> 赋 <code>CGImage</code>来添加图片,我们也可以使用 <code>Core Graphics</code> 直接绘制.能通过继承 <code>UIView</code> 来实现 <code>-drawRect</code> 实现自定义绘制</li>
+<li><code>-drawRect</code> 默认是没有实现的,因为对 <code>UIView</code> 来说,这个图层的图片不是必须的,它并不在意图层上到底是单调的颜色还是一个图片的实例;如果 <code>UIView</code> 检测到了 <code>-drawRect</code> 方法被调用了,它就会给视图分配一个图层里的图片,这个图层里图片的像素尺寸等于视图大小乘以 <code>contentsScale</code> 的值</li>
+<li>但是如果不需要图层里面的图片,就不要啊创建,因为会造成CPU资源和内存的浪费(苹果也是这样建议的,如果没有自定义的任务就不要在子类中写一个空的 <code>-drawRect</code> 方法)
+        
+          <a class="article-more-a" href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/#more">more >></a>
+        
+      
+
+      
+    </li></ol></li></ol></div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-iOS核心动画技巧学习-CALayer常用属性" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/">iOS核心动画技巧学习 -- CALayer常用属性</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/" class="archive-article-date">
+  	<time datetime="2018-01-04T03:06:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>contents属性<ul>
+<li>类型<ul>
+<li>id类型的历史原因:因为在MAC OS系统上,这个属性对<code>CGImage</code>和<code>NSImage</code>的类型值都起作用</li>
+<li>但是在iOS平台将<code>UIImage</code>赋值给它,编译会通过,然后你得到的图层将是空白的<img src="http://oxn0lcico.bkt.clouddn.com/Snip20180103_9.png" alt=""></li>
+<li>但是其实我们真正要赋值的类型应该是<code>CGImageRef</code>,是一个指向<code>CGImage</code>结构的指针;不过<code>UIImage</code>有一个<code>CGimage</code>属性,它返回一个<code>CGImageRef</code>,点击进去<code>UIImage</code>的头文件可以看到:<code>@property(nullable, nonatomic,readonly) CGImageRef CGImage; // returns underlying CGImageRef or nil if CIImage based</code>
+        
+          <a class="article-more-a" href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/#more">more >></a>
+        
+      
+
+      
+    </li></ul></li></ul></li></ul></div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-iOS核心动画技巧学习-CALayer的历史追溯" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/03/iOS核心动画技巧学习-CALayer的历史追溯/">iOS核心动画技巧学习 -- CALayer的历史追溯</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/03/iOS核心动画技巧学习-CALayer的历史追溯/" class="archive-article-date">
+  	<time datetime="2018-01-03T07:01:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>异同<ul>
+<li>UIView负责用来处理和用户的交互</li>
+<li>CALayer负责真正的在屏幕上显示和做动画 </li>
+</ul>
+</li>
+<li>关联(平行的层级关系)<ul>
+<li>一个视图只有一个相关联的图层,初始化视图的时候自动创建,暂且叫为根图层,视图的职责就是创建并且管理这个图层</li>
+<li>但是我们也可以自己创建单独的图层,来添加为某个视图相关联的跟图层的字图层,如图所示</li>
+<li><img src="http://oxn0lcico.bkt.clouddn.com/Snip20180103_2.png" alt=""></li>
+<li>Mac OS平台10.8之前,一个显著的性能缺陷就是用了视图层级而不是单独在一个视图里面使用<code>CALyer</code>树状层级;10.8之后 <code>NSView</code>性能得到了大幅度提高</li>
+<li>IOS平台,作为比较轻量级的<code>UIView</code>并没有显著的性能影响</li>
+<li>视图层级优点:可以在使用所有的<code>CALayer</code>底层特性同时,也可以同时使用<code>UIView</code>的高级API(自动排版,布局和事件处理)</li>
+<li><code>CALayer</code>优点:开发同时可以在Mac OS上运行的跨平台应用,使用多种<code>CALayer</code>的子集</li>
+</ul>
+</li>
+<li>原因(职责分离)<ul>
+<li>为什么不用一个简单的层级来处理所有的事情,而是需要基于<code>UIView</code>和<code>CALayer</code>提供俩个平行的层级关系</li>
+<li>iOS和Mac OS俩个平台上,事件和用户交互方面:基于多点触控的用户界面和基于鼠标键盘有着本质的区别 ,这既是为什么iOS有UIKit和UIView,Mac OS有AppKit和NSView,这样俩个平台就能共享Core Animation框架,共享代码,使得开发更加便捷 </li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/03/iOS核心动画技巧学习-CALayer的历史追溯/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-终端提交代码到github" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/20/终端提交代码到github/">终端提交代码到github</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/20/终端提交代码到github/" class="archive-article-date">
+  	<time datetime="2017-12-20T05:45:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h4><ul>
+<li>写好自己的demo,假如说在桌面</li>
+<li>配置好电脑和github的SSH</li>
+<li>在你的github新建一个仓库</li>
+<li>复制新建项目的https地址</li>
+<li>打开终端,cd到你的根目录(其实哪里都行,就是你电脑上管理你github代码的地方,方便以后一起管理)</li>
+<li>使用命令行 <code>git clone https://github.com/tutu279737146/CTMediator-Demo.git</code>,(将后面的URL换成你的仓库地址)</li>
+<li>成功以后,再次用命令行cd到当前的项目的路径下<code>cd CTMediator-Demo</code></li>
+<li>打开你的桌面上的项目工程,将需要上传的文件复制到需要上传的目录下(这里是根目录)</li>
+<li>初始化git仓库,<code>git init</code></li>
+<li>添加文件到git <code>git add .</code></li>
+<li>提交到本地代码仓库 <code>git commit -m &quot;提交代码&quot;</code></li>
+<li>提交到远程仓库,别名是origin <code>git remote add origin https://github.com/tutu279737146/CTMediator-Demo.git</code><ul>
+<li>如果报错存在origin,那么先删除<code>git remote rm origin</code></li>
+<li>再重新提交<code>git remote add origin https://github.com/tutu279737146/CTMediator-Demo.git</code></li>
+</ul>
+</li>
+<li>推送本地代码到服务器<code>git push -u origin master</code>,将本地的源码push到github别名为origin的远程项目中<ul>
+<li>如果报错说本地文件不是最新的,需要先拉取远程文件<code>git pull origin master</code></li>
+<li>再重新push<code>git push -u origin master</code></li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/20/终端提交代码到github/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 

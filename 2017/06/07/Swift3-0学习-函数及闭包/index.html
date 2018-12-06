@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 涂世坤的博客</title>
+  <title>Swift3.0学习--函数及闭包 | 涂世坤的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="tushikun_blog | blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="涂世坤的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="函数 格式  123456func 函数名(参数名:参数类型..)-&amp;gt; 返回值&amp;#123;       //代码实现&amp;#125;func name(parameters) -&amp;gt; return type &amp;#123;   function body&amp;#125;  函数的普通调用  1234567891011//定义函数func sum(x: Int, y: Int) -&amp;gt; Int">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift3.0学习--函数及闭包">
+<meta property="og:url" content="http://yoursite.com/2017/06/07/Swift3-0学习-函数及闭包/index.html">
 <meta property="og:site_name" content="涂世坤的博客">
-<meta property="og:description" content="tushikun_blog | blog">
+<meta property="og:description" content="函数 格式  123456func 函数名(参数名:参数类型..)-&amp;gt; 返回值&amp;#123;       //代码实现&amp;#125;func name(parameters) -&amp;gt; return type &amp;#123;   function body&amp;#125;  函数的普通调用  1234567891011//定义函数func sum(x: Int, y: Int) -&amp;gt; Int">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-06-07T10:31:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="涂世坤的博客">
-<meta name="twitter:description" content="tushikun_blog | blog">
+<meta name="twitter:title" content="Swift3.0学习--函数及闭包">
+<meta name="twitter:description" content="函数 格式  123456func 函数名(参数名:参数类型..)-&amp;gt; 返回值&amp;#123;       //代码实现&amp;#125;func name(parameters) -&amp;gt; return type &amp;#123;   function body&amp;#125;  函数的普通调用  1234567891011//定义函数func sum(x: Int, y: Int) -&amp;gt; Int">
   
     <link rel="alternative" href="/atom.xml" title="涂世坤的博客" type="application/atom+xml">
   
@@ -157,415 +158,225 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Swift3-0学习-函数及闭包" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Swift3.0学习--函数及闭包
+    </h1>
+  
+
+        
+        <a href="/2017/06/07/Swift3-0学习-函数及闭包/" class="archive-article-date">
+  	<time datetime="2017-06-07T02:54:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-07</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ul>
+<li><strong>格式</strong></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> 函数名<span class="params">(参数名:参数类型..)</span></span>-&gt; 返回值&#123;</span><br><span class="line">       <span class="comment">//代码实现</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">name</span><span class="params">(parameters)</span></span> -&gt; <span class="keyword">return</span> type &#123;</span><br><span class="line">   function body</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>函数的普通调用</strong></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义函数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sum</span><span class="params">(x: Int, y: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> x + y</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//调用</span></span><br><span class="line"><span class="comment">//Swift1.0调用</span></span><br><span class="line">  <span class="built_in">print</span>(sum(<span class="number">10</span>, <span class="number">12</span>))</span><br><span class="line"><span class="comment">//Swift2.0调用</span></span><br><span class="line">  <span class="built_in">print</span>(sum(<span class="number">10</span>, y: <span class="number">12</span>))</span><br><span class="line"><span class="comment">//Swift3.0调用</span></span><br><span class="line">  <span class="built_in">print</span>(sum(x: <span class="number">10</span>, y: <span class="number">12</span>))    <span class="comment">//输出:22</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li><strong>函数的特殊调用</strong></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.先定义一个函数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sum</span><span class="params">(x: Int,y: Int)</span></span> -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2.在需要调用的地方用一个常量来记录这个函数</span></span><br><span class="line"><span class="comment">//'f'的类型是(Int, Int) -&gt; Int,竟然是函数的类型</span></span><br><span class="line"><span class="keyword">let</span> f = sum</span><br><span class="line"><span class="comment">//3.在需要执行的时候,直接用常量(f)调用</span></span><br><span class="line"><span class="built_in">print</span>(f(<span class="number">100</span>, <span class="number">200</span>))   <span class="comment">//输出:300</span></span><br><span class="line">  </span><br><span class="line">```swift</span><br><span class="line">- **函数的外部参数**</span><br><span class="line">    - 外部参数就是给形参前面加一个字</span><br><span class="line">    - 外部参数的使用并不会影响到函数内部的细节</span><br><span class="line">    - 被调用起来更加直观,告诉调用者形参的具体内容,使代码可读性</span><br><span class="line">    - 外部参数可以使用'<span class="number">_</span>'忽略</span><br><span class="line"></span><br><span class="line">```swift</span><br><span class="line"><span class="comment">//定义函数</span></span><br><span class="line"><span class="comment">//告诉被调用者x和y是个数(num)</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sum1</span><span class="params">(num1 x: Int, num2 y: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用</span></span><br><span class="line"><span class="built_in">print</span>(sum1(num1: <span class="number">10</span>, num2: <span class="number">20</span>))  <span class="comment">//输出:30</span></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="comment">//定义函数</span></span><br><span class="line"><span class="comment">//用不到的变量,用_替代,如上面的num1和num2,只是定义的时候用了一次,就再也没用了;</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sum2</span><span class="params">(<span class="number">_</span> x: Int, <span class="number">_</span> y: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line"><span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用</span></span><br><span class="line"><span class="built_in">print</span>(sum2(<span class="number">10</span>, <span class="number">20</span>))  <span class="comment">//输出:30</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>函数的默认值</strong><ul>
+<li>OC函数没有默认值,Swift才有</li>
+<li>函数有了默认值,就可以省略很多代码,比如说OC中SDWebImage框架中的方法,针对不同的参数有好多方法,但是方法最后调用的都是包含参数最全的一个方法;在Swift中就可以不用这么麻烦了</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义函数</span></span><br><span class="line"><span class="comment">//给函数的参数设置默认值</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sum3</span><span class="params">(num1 x: Int = <span class="number">1</span>, num2 y: Int = <span class="number">2</span>)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用函数</span></span><br><span class="line"><span class="comment">//并且给参数传递不同的值</span></span><br><span class="line"><span class="built_in">print</span>(sum3())     <span class="comment">//输出:3</span></span><br><span class="line"><span class="built_in">print</span>(sum3(num1: <span class="number">10</span>))  <span class="comment">//输出:12</span></span><br><span class="line"><span class="built_in">print</span>(sum3(num2: <span class="number">20</span>))  <span class="comment">//输出:21</span></span><br><span class="line"><span class="built_in">print</span>(sum3(num1: <span class="number">10</span>, num2: <span class="number">20</span>))  <span class="comment">//输出:30</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>函数的无返回值</strong><ul>
+<li>swift中函数是特殊的闭包</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数无返回值三种情况</span></span><br><span class="line"><span class="comment">//1.全部省略的情况</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">demo1</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"直接省略"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2.-&gt; ()de 情况</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">demo2</span><span class="params">()</span></span> -&gt; () &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"()"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//3.返回值是Void的情况</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">demo3</span><span class="params">()</span></span> -&gt; <span class="type">Void</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Void"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><ul>
+<li><strong>特点</strong><ul>
+<li>类似OC中的Block</li>
+<li>Swift中的函数是特殊的闭包(上面有提到)</li>
+<li>需要提前准备好代码,然后在需要的时候直接执行,也可以当做参数传递</li>
+<li>参数,返回值,以及代码的实现都写在 {}内</li>
+<li>需要使用<strong>‘ in ‘</strong>分隔定义和实现</li>
+<li>{形参列表 -&gt; 返回值类型  in  // 实现的代码}</li>
+</ul>
+</li>
+<li><p><strong>简单使用介绍</strong></p>
+<ul>
+<li><p>最简单的闭包:无参数无返回值,{}内除了实现代码,() -&gt; () in都可以省略</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//完整版</span></span><br><span class="line"><span class="keyword">let</span> b1 = &#123; () -&gt; () <span class="keyword">in</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"完整版简单闭包"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//执行闭包</span></span><br><span class="line">    b1()  <span class="comment">//输出:完整版简单闭包</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="comment">//省略版</span></span><br><span class="line"><span class="keyword">let</span> b1 = &#123;  </span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"省略版简单闭包"</span>)</span><br><span class="line">  &#125;  </span><br><span class="line"><span class="comment">//执行闭包</span></span><br><span class="line">b1()   <span class="comment">//输出:省略版简单闭包</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>带参数的闭包</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> b2 = &#123; (x: <span class="type">Int</span>) -&gt; () <span class="keyword">in</span></span><br><span class="line">        </span><br><span class="line">        <span class="built_in">print</span>(x)</span><br><span class="line">    &#125;</span><br><span class="line">    b2(<span class="number">29</span>)   <span class="comment">//输出:29</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>带参数,带返回值的闭包</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> b3 = &#123; (x: <span class="type">Int</span>) -&gt; <span class="type">Int</span> <span class="keyword">in</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span>(x)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">print</span>(b3(<span class="number">112</span>))   <span class="comment">//输出112</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/08/dealloc用法/" class="archive-article-date">
-  	<time datetime="2018-08-08T12:24:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/08/dealloc用法/">dealloc用法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/14/深入探讨Block循环引用/" class="archive-article-date">
-  	<time datetime="2018-07-13T16:18:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/14/深入探讨Block循环引用/">深入探讨Block循环引用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/盒子模型/" class="archive-article-date">
-  	<time datetime="2018-07-10T15:21:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/盒子模型/">盒子模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/" class="archive-article-date">
-  	<time datetime="2018-01-09T02:19:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/">iOS核心动画技巧学习-CALayer常用属性2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/" class="archive-article-date">
-  	<time datetime="2018-01-05T06:19:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/">iOS核心动画技巧学习 - CALayer处理事件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/05/iOS核心动画技巧学习-布局/" class="archive-article-date">
-  	<time datetime="2018-01-05T03:38:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/05/iOS核心动画技巧学习-布局/">iOS核心动画技巧学习 -- 布局</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/" class="archive-article-date">
-  	<time datetime="2018-01-04T06:39:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/">iOS核心动画技巧学习 -- drawRect方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/" class="archive-article-date">
-  	<time datetime="2018-01-04T03:06:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/">iOS核心动画技巧学习 -- CALayer常用属性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/03/iOS核心动画技巧学习-CALayer的历史追溯/" class="archive-article-date">
-  	<time datetime="2018-01-03T07:01:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/03/iOS核心动画技巧学习-CALayer的历史追溯/">iOS核心动画技巧学习 -- CALayer的历史追溯</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/20/终端提交代码到github/" class="archive-article-date">
-  	<time datetime="2017-12-20T05:45:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/20/终端提交代码到github/">终端提交代码到github</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="/categories/Swift//" class="article-tag-list-link color1">Swift</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/06/07/Swift3-0学习-函数及闭包/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/06/07/Swift3-0学习-GCD和尾随闭包/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Swift3.0学习--GCD和尾随闭包
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/06/06/Swift3-0学习-数组和字典/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Swift3.0学习--数组和字典</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -589,8 +400,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

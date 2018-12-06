@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 涂世坤的博客</title>
+  <title>Swift3.0学习--switch分支及For循环 | 涂世坤的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="tushikun_blog | blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="涂世坤的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="Switch OC的switch 分支中变量只能是整数值 每段语句必须有break    1234567891011121314int num;    switch (num) &amp;#123;        case 0:            NSLog(@&amp;quot;输出0&amp;quot;);            break;        case 1:            NSLog(@&amp;q">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift3.0学习--switch分支及For循环">
+<meta property="og:url" content="http://yoursite.com/2017/06/06/Swift3-0学习-switch分支及For循环/index.html">
 <meta property="og:site_name" content="涂世坤的博客">
-<meta property="og:description" content="tushikun_blog | blog">
+<meta property="og:description" content="Switch OC的switch 分支中变量只能是整数值 每段语句必须有break    1234567891011121314int num;    switch (num) &amp;#123;        case 0:            NSLog(@&amp;quot;输出0&amp;quot;);            break;        case 1:            NSLog(@&amp;q">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-06-07T10:32:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="涂世坤的博客">
-<meta name="twitter:description" content="tushikun_blog | blog">
+<meta name="twitter:title" content="Swift3.0学习--switch分支及For循环">
+<meta name="twitter:description" content="Switch OC的switch 分支中变量只能是整数值 每段语句必须有break    1234567891011121314int num;    switch (num) &amp;#123;        case 0:            NSLog(@&amp;quot;输出0&amp;quot;);            break;        case 1:            NSLog(@&amp;q">
   
     <link rel="alternative" href="/atom.xml" title="涂世坤的博客" type="application/atom+xml">
   
@@ -157,415 +158,204 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Swift3-0学习-switch分支及For循环" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Swift3.0学习--switch分支及For循环
+    </h1>
+  
+
+        
+        <a href="/2017/06/06/Swift3-0学习-switch分支及For循环/" class="archive-article-date">
+  	<time datetime="2017-06-06T02:00:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-06</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Switch"><a href="#Switch" class="headerlink" title="Switch"></a>Switch</h3><ul>
+<li>OC的switch<ul>
+<li>分支中变量只能是整数值</li>
+<li>每段语句必须有break</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">int num;</span><br><span class="line">    switch (num) &#123;</span><br><span class="line">        case 0:</span><br><span class="line">            NSLog(@&quot;输出0&quot;);</span><br><span class="line">            break;</span><br><span class="line">        case 1:</span><br><span class="line">            NSLog(@&quot;输出1&quot;);</span><br><span class="line">            break;</span><br><span class="line">        case 2:</span><br><span class="line">            NSLog(@&quot;输出2&quot;);</span><br><span class="line">            break;</span><br><span class="line">        default:</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li>Swift的switch<ul>
+<li>变量无要求,可以使任意</li>
+<li>每段语句不需要break,只有这段语句没有代码的时候才写break</li>
+<li>多个变量可以用’,’来连接</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">func switchDemo(num: String)&#123;</span><br><span class="line">    switch num &#123;</span><br><span class="line">    case &quot;0&quot;:</span><br><span class="line">        print(&quot;输出0&quot;)</span><br><span class="line">    case &quot;1&quot;,&quot;2.3&quot;:</span><br><span class="line">        break</span><br><span class="line">    default:</span><br><span class="line">        print(&quot;不输出&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="For"><a href="#For" class="headerlink" title="For"></a>For</h3><ul>
+<li>OC的for循环</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (NSInteger i = 0; i &lt; &lt;#num#&gt;; i++) &#123;</span><br><span class="line">       &lt;#statements#&gt;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Swift的for循环<ul>
+<li>3.0取消了i++,++i,取而代之的是i+=1</li>
+<li>num = i++ ==&gt; temp=i,num=temp,i=temp+1</li>
+<li>num = ++i ==&gt; i=i+1,num=i</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">func forDemo() &#123;</span><br><span class="line">    //[0,5)  //前闭后开区间</span><br><span class="line">    for i in 0..&lt;5 &#123;</span><br><span class="line">        print(i)</span><br><span class="line">    &#125;</span><br><span class="line">    //[0,5]  //前开后开区间</span><br><span class="line">    for i in 0...5 &#123;</span><br><span class="line">        print(i)</span><br><span class="line">    &#125;</span><br><span class="line">    //反序遍历</span><br><span class="line">    for i in (0..&lt;10).reversed() &#123;</span><br><span class="line">        print(i)</span><br><span class="line">    &#125;</span><br><span class="line">    //是一种固定的格式,2.0一样,3.0不一样</span><br><span class="line">    let r1 = 0..&lt;5 //CountableRange&lt;Int&gt;</span><br><span class="line">    let r2 = 0...5 //CountableClosedRange&lt;Int&gt;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/08/dealloc用法/" class="archive-article-date">
-  	<time datetime="2018-08-08T12:24:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/08/dealloc用法/">dealloc用法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/14/深入探讨Block循环引用/" class="archive-article-date">
-  	<time datetime="2018-07-13T16:18:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/14/深入探讨Block循环引用/">深入探讨Block循环引用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/盒子模型/" class="archive-article-date">
-  	<time datetime="2018-07-10T15:21:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/盒子模型/">盒子模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/" class="archive-article-date">
-  	<time datetime="2018-01-09T02:19:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/">iOS核心动画技巧学习-CALayer常用属性2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/" class="archive-article-date">
-  	<time datetime="2018-01-05T06:19:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/">iOS核心动画技巧学习 - CALayer处理事件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/05/iOS核心动画技巧学习-布局/" class="archive-article-date">
-  	<time datetime="2018-01-05T03:38:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/05/iOS核心动画技巧学习-布局/">iOS核心动画技巧学习 -- 布局</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/" class="archive-article-date">
-  	<time datetime="2018-01-04T06:39:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/">iOS核心动画技巧学习 -- drawRect方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/" class="archive-article-date">
-  	<time datetime="2018-01-04T03:06:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/">iOS核心动画技巧学习 -- CALayer常用属性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/03/iOS核心动画技巧学习-CALayer的历史追溯/" class="archive-article-date">
-  	<time datetime="2018-01-03T07:01:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/03/iOS核心动画技巧学习-CALayer的历史追溯/">iOS核心动画技巧学习 -- CALayer的历史追溯</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/20/终端提交代码到github/" class="archive-article-date">
-  	<time datetime="2017-12-20T05:45:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/20/终端提交代码到github/">终端提交代码到github</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="/categories/Swift//" class="article-tag-list-link color1">Swift</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/06/06/Swift3-0学习-switch分支及For循环/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/06/06/Swift3-0学习-字符串/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Swift3.0学习--字符串
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/06/05/Swift3-0学习-可选项/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Swift3.0学习--可选项</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -589,8 +379,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

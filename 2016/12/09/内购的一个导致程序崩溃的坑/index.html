@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 涂世坤的博客</title>
+  <title>内购的一个导致程序崩溃的坑 | 涂世坤的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="tushikun_blog | blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="涂世坤的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="EXC_BAD_ACCESS(code=1,address=0x10) 最近刚刚把内购集成到我们的APP中,随之而来的就是测试妹妹带来的bug,其中一个bug比较独特(操蛋), 现在给大家分享出来,崩溃的具体步骤如下图:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内购的一个导致程序崩溃的坑">
+<meta property="og:url" content="http://yoursite.com/2016/12/09/内购的一个导致程序崩溃的坑/index.html">
 <meta property="og:site_name" content="涂世坤的博客">
-<meta property="og:description" content="tushikun_blog | blog">
+<meta property="og:description" content="EXC_BAD_ACCESS(code=1,address=0x10) 最近刚刚把内购集成到我们的APP中,随之而来的就是测试妹妹带来的bug,其中一个bug比较独特(操蛋), 现在给大家分享出来,崩溃的具体步骤如下图:">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p1.bqimg.com/1949/786ddee74c36c0da.png">
+<meta property="og:image" content="http://p1.bqimg.com/1949/d31797120a64534a.png">
+<meta property="og:updated_time" content="2016-12-09T08:13:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="涂世坤的博客">
-<meta name="twitter:description" content="tushikun_blog | blog">
+<meta name="twitter:title" content="内购的一个导致程序崩溃的坑">
+<meta name="twitter:description" content="EXC_BAD_ACCESS(code=1,address=0x10) 最近刚刚把内购集成到我们的APP中,随之而来的就是测试妹妹带来的bug,其中一个bug比较独特(操蛋), 现在给大家分享出来,崩溃的具体步骤如下图:">
+<meta name="twitter:image" content="http://p1.bqimg.com/1949/786ddee74c36c0da.png">
   
     <link rel="alternative" href="/atom.xml" title="涂世坤的博客" type="application/atom+xml">
   
@@ -157,389 +161,67 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-内购的一个导致程序崩溃的坑" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      内购的一个导致程序崩溃的坑
+    </h1>
+  
+
+        
+        <a href="/2016/12/09/内购的一个导致程序崩溃的坑/" class="archive-article-date">
+  	<time datetime="2016-12-09T08:04:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-09</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="EXC-BAD-ACCESS-code-1-address-0x10"><a href="#EXC-BAD-ACCESS-code-1-address-0x10" class="headerlink" title="EXC_BAD_ACCESS(code=1,address=0x10)"></a><em>EXC_BAD_ACCESS(code=1,address=0x10)</em></h3><blockquote>
+<p>最近刚刚把内购集成到我们的APP中,随之而来的就是测试妹妹带来的bug,其中一个bug比较独特(操蛋), 现在给大家分享出来,崩溃的具体步骤如下图:</p>
+</blockquote>
+<a id="more"></a>
+<p><img src="http://p1.bqimg.com/1949/786ddee74c36c0da.png" alt=""></p>
+<p><strong>程序崩溃在下面这一句话:报的是野指针错误</strong></p>
+<p><img src="http://p1.bqimg.com/1949/d31797120a64534a.png" alt=""></p>
+<blockquote>
+<p>很明显的原因是因为一个控制器的中的某个对象已经释放,但是后来又一次向其调用了某些请求,造成野指针错误,最后查看代码发现是由于在第5步的时候,控制器消失的时候没有释放 [SKPaymentQueue defaultQueue]的observe </p>
+</blockquote>
+<h5 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (void)dealloc&#123;</span><br><span class="line">    </span><br><span class="line">    [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/08/dealloc用法/" class="archive-article-date">
-  	<time datetime="2018-08-08T12:24:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/08/dealloc用法/">dealloc用法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/14/深入探讨Block循环引用/" class="archive-article-date">
-  	<time datetime="2018-07-13T16:18:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/14/深入探讨Block循环引用/">深入探讨Block循环引用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/盒子模型/" class="archive-article-date">
-  	<time datetime="2018-07-10T15:21:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/盒子模型/">盒子模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/" class="archive-article-date">
-  	<time datetime="2018-01-09T02:19:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/">iOS核心动画技巧学习-CALayer常用属性2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/" class="archive-article-date">
-  	<time datetime="2018-01-05T06:19:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/">iOS核心动画技巧学习 - CALayer处理事件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/05/iOS核心动画技巧学习-布局/" class="archive-article-date">
-  	<time datetime="2018-01-05T03:38:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/05/iOS核心动画技巧学习-布局/">iOS核心动画技巧学习 -- 布局</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/" class="archive-article-date">
-  	<time datetime="2018-01-04T06:39:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/">iOS核心动画技巧学习 -- drawRect方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/" class="archive-article-date">
-  	<time datetime="2018-01-04T03:06:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/">iOS核心动画技巧学习 -- CALayer常用属性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/03/iOS核心动画技巧学习-CALayer的历史追溯/" class="archive-article-date">
-  	<time datetime="2018-01-03T07:01:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/03/iOS核心动画技巧学习-CALayer的历史追溯/">iOS核心动画技巧学习 -- CALayer的历史追溯</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/20/终端提交代码到github/" class="archive-article-date">
-  	<time datetime="2017-12-20T05:45:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/20/终端提交代码到github/">终端提交代码到github</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -552,20 +234,112 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2016/12/09/内购的一个导致程序崩溃的坑/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/12/13/内购的导致程序崩溃坑-2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          内购的导致程序崩溃坑(2)
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2016/12/08/iOS应用内跳转到App-Store评论界面/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS应用内跳转到App Store评论界面</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -589,8 +363,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

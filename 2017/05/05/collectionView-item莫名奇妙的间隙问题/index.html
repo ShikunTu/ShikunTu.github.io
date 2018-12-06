@@ -6,18 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 涂世坤的博客</title>
+  <title>collectionView item莫名奇妙的间隙问题 | 涂世坤的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="tushikun_blog | blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="涂世坤的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="最近项目中在做一个打卡的功能,用到了collection,但是界面渲染以后会发现有一个不知道怎么产生的间距,如图所示:但是我想实现的是所有的item间距为0,这里的itemSize为了以后扩展,设置为了ScreenWidth / kitemCount,minimuInteritemSpacing设置为0;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="collectionView item莫名奇妙的间隙问题">
+<meta property="og:url" content="http://yoursite.com/2017/05/05/collectionView-item莫名奇妙的间隙问题/index.html">
 <meta property="og:site_name" content="涂世坤的博客">
-<meta property="og:description" content="tushikun_blog | blog">
+<meta property="og:description" content="最近项目中在做一个打卡的功能,用到了collection,但是界面渲染以后会发现有一个不知道怎么产生的间距,如图所示:但是我想实现的是所有的item间距为0,这里的itemSize为了以后扩展,设置为了ScreenWidth / kitemCount,minimuInteritemSpacing设置为0;">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://oxn0lcico.bkt.clouddn.com/%E9%97%B4%E9%9A%99.png">
+<meta property="og:image" content="http://oxn0lcico.bkt.clouddn.com/1.png">
+<meta property="og:image" content="http://oxn0lcico.bkt.clouddn.com/2.png">
+<meta property="og:image" content="http://oxn0lcico.bkt.clouddn.com/3.png">
+<meta property="og:image" content="http://oxn0lcico.bkt.clouddn.com/4.png">
+<meta property="og:image" content="http://oxn0lcico.bkt.clouddn.com/5.png">
+<meta property="og:image" content="http://oxn0lcico.bkt.clouddn.com/%E6%97%A0%E9%97%B4%E9%9A%99.png">
+<meta property="og:updated_time" content="2017-10-11T03:25:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="涂世坤的博客">
-<meta name="twitter:description" content="tushikun_blog | blog">
+<meta name="twitter:title" content="collectionView item莫名奇妙的间隙问题">
+<meta name="twitter:description" content="最近项目中在做一个打卡的功能,用到了collection,但是界面渲染以后会发现有一个不知道怎么产生的间距,如图所示:但是我想实现的是所有的item间距为0,这里的itemSize为了以后扩展,设置为了ScreenWidth / kitemCount,minimuInteritemSpacing设置为0;">
+<meta name="twitter:image" content="http://oxn0lcico.bkt.clouddn.com/%E9%97%B4%E9%9A%99.png">
   
     <link rel="alternative" href="/atom.xml" title="涂世坤的博客" type="application/atom+xml">
   
@@ -157,389 +166,73 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-collectionView-item莫名奇妙的间隙问题" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      collectionView item莫名奇妙的间隙问题
+    </h1>
+  
+
+        
+        <a href="/2017/05/05/collectionView-item莫名奇妙的间隙问题/" class="archive-article-date">
+  	<time datetime="2017-05-05T05:34:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-05</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>最近项目中在做一个打卡的功能,用到了collection,但是界面渲染以后会发现有一个不知道怎么产生的间距,如图所示:但是我想实现的是所有的item间距为0,这里的itemSize为了以后扩展,设置为了ScreenWidth / kitemCount,minimuInteritemSpacing设置为0;</strong></p>
+<p><img src="http://oxn0lcico.bkt.clouddn.com/%E9%97%B4%E9%9A%99.png" alt=""></p>
+<a id="more"></a>
+<h5 id="首先我们用view-hierachy来看一下item的位置和大小"><a href="#首先我们用view-hierachy来看一下item的位置和大小" class="headerlink" title="首先我们用view hierachy来看一下item的位置和大小"></a>首先我们用view hierachy来看一下item的位置和大小</h5><ul>
+<li>没有间隙的俩个item</li>
+</ul>
+<p><img src="http://oxn0lcico.bkt.clouddn.com/1.png" alt=""><br><img src="http://oxn0lcico.bkt.clouddn.com/2.png" alt=""></p>
+<p><strong>从俩张图的Position X可以看出俩个item的位置,因为Anchor point是0.5,所以显示的是图片中间的位置.第0个item是26.7857142857143,第一个item是80.2857142857143,俩者的间距是53,而item的width是53.57,比宽度小,所以没有间隙</strong></p>
+<ul>
+<li>有间隙的俩个item</li>
+</ul>
+<p><strong>同理,第0个item是187.285714285714,第一个item是241.285714285714,俩者的间距是54,而item的width是53.57,比宽度大,所以有间隙</strong></p>
+<p><img src="http://oxn0lcico.bkt.clouddn.com/3.png" alt=""><br><img src="http://oxn0lcico.bkt.clouddn.com/4.png" alt=""></p>
+<p><strong>我们也可以通过代码打印item的frame来验证一下,自定义一个HFAdjustSpacingFlowLayout继承UICollectionViewFlowLayout,然后在-layoutAttributesForElementsInrect:方法打印这些Cell的frame信息，如图所示,item的x并没有随着item的大小递增,所以会出现间隙.验证了view hierarchy看到的结果.但是这些间隙怎么出现的,哪个大神知道了麻烦告诉一下.</strong><br><img src="http://oxn0lcico.bkt.clouddn.com/5.png" alt=""></p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p><strong>通过layoutAttributesForElementsInrect:方法中来修改item的frame来改变</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">- (NSArray&lt;UICollectionViewLayoutAttributes *&gt; *)layoutAttributesForElementsInRect:(CGRect)rect &#123;</span><br><span class="line">    NSArray *original = [super layoutAttributesForElementsInRect:rect];</span><br><span class="line">    NSMutableArray *attributes = [[NSMutableArray alloc] initWithArray:original copyItems:YES];</span><br><span class="line">    //从第二个循环到最后一个,因为第一个不需要修改</span><br><span class="line">    for(int i = 1; i &lt; [attributes count]; i++) &#123;</span><br><span class="line">        //当前attributes</span><br><span class="line">        UICollectionViewLayoutAttributes *currentLayoutAttributes = attributes[i];</span><br><span class="line">        //上一个attributes</span><br><span class="line">        UICollectionViewLayoutAttributes *prevLayoutAttributes = attributes[i - 1];</span><br><span class="line">        //设置的Cell间距，可根据需要改</span><br><span class="line">        NSInteger cellSpacing = 0;</span><br><span class="line">        //前一个cell的最右边</span><br><span class="line">        NSInteger prevCellRight = CGRectGetMaxX(prevLayoutAttributes.frame);</span><br><span class="line">        //如果当前一个cell的最右边加上我们想要的间距加上当前cell的宽度依然在contentSize中，我们改变当前cell的原点位置</span><br><span class="line">        //不加这个判断的后果是，UICollectionView只显示一行，原因是下面所有cell的x值都被加到第一行最后一个元素的后面了</span><br><span class="line">        if(prevCellRight + cellSpacing + currentLayoutAttributes.frame.size.width &lt; self.collectionViewContentSize.width) &#123;</span><br><span class="line">            CGRect frame = currentLayoutAttributes.frame;</span><br><span class="line">            frame.origin.x = prevCellRight + cellSpacing;</span><br><span class="line">            currentLayoutAttributes.frame = frame;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return  attributes;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>再次运行,效果如下:</strong><br><img src="http://oxn0lcico.bkt.clouddn.com/%E6%97%A0%E9%97%B4%E9%9A%99.png" alt=""></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/08/dealloc用法/" class="archive-article-date">
-  	<time datetime="2018-08-08T12:24:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/08/dealloc用法/">dealloc用法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/14/深入探讨Block循环引用/" class="archive-article-date">
-  	<time datetime="2018-07-13T16:18:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/14/深入探讨Block循环引用/">深入探讨Block循环引用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/盒子模型/" class="archive-article-date">
-  	<time datetime="2018-07-10T15:21:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/盒子模型/">盒子模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/" class="archive-article-date">
-  	<time datetime="2018-01-09T02:19:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/">iOS核心动画技巧学习-CALayer常用属性2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/" class="archive-article-date">
-  	<time datetime="2018-01-05T06:19:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/">iOS核心动画技巧学习 - CALayer处理事件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/05/iOS核心动画技巧学习-布局/" class="archive-article-date">
-  	<time datetime="2018-01-05T03:38:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/05/iOS核心动画技巧学习-布局/">iOS核心动画技巧学习 -- 布局</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/" class="archive-article-date">
-  	<time datetime="2018-01-04T06:39:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/">iOS核心动画技巧学习 -- drawRect方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/" class="archive-article-date">
-  	<time datetime="2018-01-04T03:06:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/">iOS核心动画技巧学习 -- CALayer常用属性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/03/iOS核心动画技巧学习-CALayer的历史追溯/" class="archive-article-date">
-  	<time datetime="2018-01-03T07:01:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/03/iOS核心动画技巧学习-CALayer的历史追溯/">iOS核心动画技巧学习 -- CALayer的历史追溯</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/20/终端提交代码到github/" class="archive-article-date">
-  	<time datetime="2017-12-20T05:45:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/20/终端提交代码到github/">终端提交代码到github</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -552,20 +245,112 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/05/05/collectionView-item莫名奇妙的间隙问题/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/05/15/制作自己的CocoaPods框架/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          制作自己的CocoaPods框架
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/04/20/FOUNDATION-EXPORT-和-define的区别/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">FOUNDATION_EXPORT 和 #define的区别</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -589,8 +374,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

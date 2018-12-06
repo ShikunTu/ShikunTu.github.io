@@ -6,18 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 涂世坤的博客</title>
+  <title>UITextfield限制字符长度的问题 | 涂世坤的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="tushikun_blog | blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="涂世坤的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="项目需求中英混合输入限制字数 需要了解的 ios状态下,UTF8:数字1个,英文1个,中文3个,emoji4个   Unicode:数字2个,英文2个,中文2个,emoji4个  如图:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UITextfield限制字符长度的问题">
+<meta property="og:url" content="http://yoursite.com/2017/03/24/UITextfield限制字符长度的问题/index.html">
 <meta property="og:site_name" content="涂世坤的博客">
-<meta property="og:description" content="tushikun_blog | blog">
+<meta property="og:description" content="项目需求中英混合输入限制字数 需要了解的 ios状态下,UTF8:数字1个,英文1个,中文3个,emoji4个   Unicode:数字2个,英文2个,中文2个,emoji4个  如图:">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://i1.piimg.com/1949/5f489fb345b91d24.png">
+<meta property="og:image" content="http://i1.piimg.com/580814/7268e663a0862ce1.gif">
+<meta property="og:image" content="http://i2.buimg.com/580814/a0788fa9a14ee789.gif">
+<meta property="og:image" content="http://i4.buimg.com/580814/8fd4477510acabfd.gif">
+<meta property="og:image" content="http://i1.piimg.com/580814/8444cc7e1a57d63f.gif">
+<meta property="og:image" content="http://i1.piimg.com/1949/67afb064a547e374.gif">
+<meta property="og:image" content="http://p1.bqimg.com/1949/dc5e71fe81234f23.gif">
+<meta property="og:image" content="http://i4.buimg.com/580814/9b6e81ede6f89e95.gif">
+<meta property="og:updated_time" content="2017-03-24T05:08:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="涂世坤的博客">
-<meta name="twitter:description" content="tushikun_blog | blog">
+<meta name="twitter:title" content="UITextfield限制字符长度的问题">
+<meta name="twitter:description" content="项目需求中英混合输入限制字数 需要了解的 ios状态下,UTF8:数字1个,英文1个,中文3个,emoji4个   Unicode:数字2个,英文2个,中文2个,emoji4个  如图:">
+<meta name="twitter:image" content="http://i1.piimg.com/1949/5f489fb345b91d24.png">
   
     <link rel="alternative" href="/atom.xml" title="涂世坤的博客" type="application/atom+xml">
   
@@ -157,415 +167,194 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-UITextfield限制字符长度的问题" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UITextfield限制字符长度的问题
+    </h1>
+  
+
+        
+        <a href="/2017/03/24/UITextfield限制字符长度的问题/" class="archive-article-date">
+  	<time datetime="2017-03-24T05:05:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-24</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="项目需求"><a href="#项目需求" class="headerlink" title="项目需求"></a>项目需求</h3><p><strong>中英混合输入限制字数</strong></p>
+<h4 id="需要了解的"><a href="#需要了解的" class="headerlink" title="需要了解的"></a>需要了解的</h4><blockquote>
+<pre><code>ios状态下,UTF8:数字1个,英文1个,中文3个,emoji4个
+</code></pre></blockquote>
+<blockquote>
+<pre><code>Unicode:数字2个,英文2个,中文2个,emoji4个
+</code></pre></blockquote>
+<p>如图:<br><img src="http://i1.piimg.com/1949/5f489fb345b91d24.png" alt=""><br><a id="more"></a></p>
+<h4 id="textField代理方法的了解"><a href="#textField代理方法的了解" class="headerlink" title="textField代理方法的了解"></a>textField代理方法的了解</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string&#123;</span><br><span class="line">	textField -----&gt;当前等待被输入的文本框</span><br><span class="line">	range    ------&gt;结构体 &#123;location:当前光标所在位置(从textfield起始位置)</span><br><span class="line">								lenth:光标的要输入的长度</span><br><span class="line">							   &#125;</span><br><span class="line">	string  -------&gt;当前键盘点击的字符串</span><br><span class="line">	return NO;-----&gt;不响应键盘事件,键盘打出的不会响应到textfield上</span><br><span class="line">	return YES;----&gt;响应键盘事件</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如图:<br><img src="http://i1.piimg.com/580814/7268e663a0862ce1.gif" alt=""></p>
+<h4 id="直接使用代理方法限制会出现的问题"><a href="#直接使用代理方法限制会出现的问题" class="headerlink" title="直接使用代理方法限制会出现的问题"></a>直接使用代理方法限制会出现的问题</h4><h6 id="问题一-超过限制字数后-删除键失效-无法修改"><a href="#问题一-超过限制字数后-删除键失效-无法修改" class="headerlink" title="问题一  超过限制字数后,删除键失效,无法修改"></a>问题一  超过限制字数后,删除键失效,无法修改</h6><p><img src="http://i2.buimg.com/580814/a0788fa9a14ee789.gif" alt=""></p>
+<h6 id="解决-修改代码"><a href="#解决-修改代码" class="headerlink" title="解决 修改代码"></a>解决 修改代码</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string&#123;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">     if (textField == self.textField) &#123;</span><br><span class="line">        if (string.length == 0) return YES;</span><br><span class="line">        </span><br><span class="line">        NSInteger existedLength = textField.text.length;</span><br><span class="line">        NSInteger selectedLength = range.length;</span><br><span class="line">        NSInteger replaceLength = string.length;</span><br><span class="line">        if (existedLength - selectedLength + replaceLength &gt; 4) &#123;</span><br><span class="line">            return NO;</span><br><span class="line">        &#125;</span><br><span class="line">     &#125;</span><br><span class="line">    return YES;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://i4.buimg.com/580814/8fd4477510acabfd.gif" alt=""></p>
+<h6 id="问题二-中文输入法的问题-当最后一个字符以中文形式输入的时候-系统会在键盘上方提供系列的联想词-这样的连续选字输入会突破我们的字符限制-模拟器不会出现问题-但是真机会出现"><a href="#问题二-中文输入法的问题-当最后一个字符以中文形式输入的时候-系统会在键盘上方提供系列的联想词-这样的连续选字输入会突破我们的字符限制-模拟器不会出现问题-但是真机会出现" class="headerlink" title="问题二  中文输入法的问题,当最后一个字符以中文形式输入的时候,系统会在键盘上方提供系列的联想词,这样的连续选字输入会突破我们的字符限制(模拟器不会出现问题,但是真机会出现)"></a>问题二  中文输入法的问题,当最后一个字符以中文形式输入的时候,系统会在键盘上方提供系列的联想词,这样的连续选字输入会突破我们的字符限制(模拟器不会出现问题,但是真机会出现)</h6><p><img src="http://i1.piimg.com/580814/8444cc7e1a57d63f.gif" alt=""></p>
+<h6 id="问题三-中文输入法下-想输入四个汉字-会出现问题-如图所示-代理方法没有响应到拼音到汉字的过程"><a href="#问题三-中文输入法下-想输入四个汉字-会出现问题-如图所示-代理方法没有响应到拼音到汉字的过程" class="headerlink" title="问题三 中文输入法下,想输入四个汉字,会出现问题,如图所示,代理方法没有响应到拼音到汉字的过程"></a>问题三 中文输入法下,想输入四个汉字,会出现问题,如图所示,代理方法没有响应到拼音到汉字的过程</h6><p><img src="http://i1.piimg.com/1949/67afb064a547e374.gif" alt=""></p>
+<p><img src="http://p1.bqimg.com/1949/dc5e71fe81234f23.gif" alt=""><br>当输入张(zhang)的时候,用户输入zhang在为完成之前,拼音”zhan”已经出现在输入框中(textfield)中,并且作为了输入的内容,但是我们想要的不是”zhan”,这样由于我们限制了4个导致”g”无法输入,从而”张”不能输出</p>
+<h6 id="解决方案-给textfield添加事件监听或者通知"><a href="#解决方案-给textfield添加事件监听或者通知" class="headerlink" title="解决方案 给textfield添加事件监听或者通知"></a>解决方案 给textfield添加事件监听或者通知</h6><p>UITextField有一个属性<em>maskedTextRange</em>用于标识中文拼音输入字母时的情形,所以解决思路:</p>
+<p>1.先检测UITextField中的maskedTextRange是否是空,不为空的时候不限制</p>
+<p>2.超过限制截取</p>
+<p><img src="http://i4.buimg.com/580814/9b6e81ede6f89e95.gif" alt=""></p>
+<h6 id="遗留问题四-中文输入法下-切换为中文输入法自带的英文-而不是系统的英文输入法-输入英文的长度是中文的限制长度"><a href="#遗留问题四-中文输入法下-切换为中文输入法自带的英文-而不是系统的英文输入法-输入英文的长度是中文的限制长度" class="headerlink" title="遗留问题四 中文输入法下 切换为中文输入法自带的英文(而不是系统的英文输入法),输入英文的长度是中文的限制长度"></a>遗留问题四 中文输入法下 切换为中文输入法自带的英文(而不是系统的英文输入法),输入英文的长度是中文的限制长度</h6>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/08/dealloc用法/" class="archive-article-date">
-  	<time datetime="2018-08-08T12:24:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/08/dealloc用法/">dealloc用法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/14/深入探讨Block循环引用/" class="archive-article-date">
-  	<time datetime="2018-07-13T16:18:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/14/深入探讨Block循环引用/">深入探讨Block循环引用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/盒子模型/" class="archive-article-date">
-  	<time datetime="2018-07-10T15:21:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/盒子模型/">盒子模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/" class="archive-article-date">
-  	<time datetime="2018-01-09T02:19:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/">iOS核心动画技巧学习-CALayer常用属性2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/" class="archive-article-date">
-  	<time datetime="2018-01-05T06:19:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/">iOS核心动画技巧学习 - CALayer处理事件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/05/iOS核心动画技巧学习-布局/" class="archive-article-date">
-  	<time datetime="2018-01-05T03:38:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/05/iOS核心动画技巧学习-布局/">iOS核心动画技巧学习 -- 布局</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/" class="archive-article-date">
-  	<time datetime="2018-01-04T06:39:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/">iOS核心动画技巧学习 -- drawRect方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/" class="archive-article-date">
-  	<time datetime="2018-01-04T03:06:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/">iOS核心动画技巧学习 -- CALayer常用属性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/03/iOS核心动画技巧学习-CALayer的历史追溯/" class="archive-article-date">
-  	<time datetime="2018-01-03T07:01:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/03/iOS核心动画技巧学习-CALayer的历史追溯/">iOS核心动画技巧学习 -- CALayer的历史追溯</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/20/终端提交代码到github/" class="archive-article-date">
-  	<time datetime="2017-12-20T05:45:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/20/终端提交代码到github/">终端提交代码到github</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="/categories/oc//" class="article-tag-list-link color3">oc</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/03/24/UITextfield限制字符长度的问题/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/04/20/FOUNDATION-EXPORT-和-define的区别/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          FOUNDATION_EXPORT 和 #define的区别
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/03/07/Xcode本地化/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Xcode本地化</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -589,8 +378,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

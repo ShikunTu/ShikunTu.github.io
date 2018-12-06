@@ -6,18 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 涂世坤的博客</title>
+  <title>iOS核心动画技巧学习 -- CALayer常用属性 | 涂世坤的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="tushikun_blog | blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="涂世坤的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="contents属性 类型 id类型的历史原因:因为在MAC OS系统上,这个属性对CGImage和NSImage的类型值都起作用 但是在iOS平台将UIImage赋值给它,编译会通过,然后你得到的图层将是空白的 但是其实我们真正要赋值的类型应该是CGImageRef,是一个指向CGImage结构的指针;不过UIImage有一个CGimage属性,它返回一个CGImageRef,点击进去UIIm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS核心动画技巧学习 -- CALayer常用属性">
+<meta property="og:url" content="http://yoursite.com/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/index.html">
 <meta property="og:site_name" content="涂世坤的博客">
-<meta property="og:description" content="tushikun_blog | blog">
+<meta property="og:description" content="contents属性 类型 id类型的历史原因:因为在MAC OS系统上,这个属性对CGImage和NSImage的类型值都起作用 但是在iOS平台将UIImage赋值给它,编译会通过,然后你得到的图层将是空白的 但是其实我们真正要赋值的类型应该是CGImageRef,是一个指向CGImage结构的指针;不过UIImage有一个CGimage属性,它返回一个CGImageRef,点击进去UIIm">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://oxn0lcico.bkt.clouddn.com/Snip20180103_9.png">
+<meta property="og:image" content="http://oxn0lcico.bkt.clouddn.com/Snip20180103_11.png">
+<meta property="og:image" content="http://oxn0lcico.bkt.clouddn.com/Snip20180103_8.png">
+<meta property="og:image" content="http://oxn0lcico.bkt.clouddn.com/Snip20180103_12.png">
+<meta property="og:image" content="http://oxn0lcico.bkt.clouddn.com/contentsGravity%E9%97%AE%E9%A2%98.gif">
+<meta property="og:image" content="http://oxn0lcico.bkt.clouddn.com/contentsGravity%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3.gif">
+<meta property="og:image" content="http://oxn0lcico.bkt.clouddn.com/masksToBounds.gif">
+<meta property="og:image" content="http://oxn0lcico.bkt.clouddn.com/Snip20180104_15-min.png">
+<meta property="og:updated_time" content="2018-01-04T03:13:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="涂世坤的博客">
-<meta name="twitter:description" content="tushikun_blog | blog">
+<meta name="twitter:title" content="iOS核心动画技巧学习 -- CALayer常用属性">
+<meta name="twitter:description" content="contents属性 类型 id类型的历史原因:因为在MAC OS系统上,这个属性对CGImage和NSImage的类型值都起作用 但是在iOS平台将UIImage赋值给它,编译会通过,然后你得到的图层将是空白的 但是其实我们真正要赋值的类型应该是CGImageRef,是一个指向CGImage结构的指针;不过UIImage有一个CGimage属性,它返回一个CGImageRef,点击进去UIIm">
+<meta name="twitter:image" content="http://oxn0lcico.bkt.clouddn.com/Snip20180103_9.png">
   
     <link rel="alternative" href="/atom.xml" title="涂世坤的博客" type="application/atom+xml">
   
@@ -157,303 +167,124 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-iOS核心动画技巧学习-CALayer常用属性" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/08/dealloc用法/" class="archive-article-date">
-  	<time datetime="2018-08-08T12:24:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/08/dealloc用法/">dealloc用法</a>
+    <h1 class="article-title" itemprop="name">
+      iOS核心动画技巧学习 -- CALayer常用属性
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/14/深入探讨Block循环引用/" class="archive-article-date">
-  	<time datetime="2018-07-13T16:18:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/14/深入探讨Block循环引用/">深入探讨Block循环引用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/盒子模型/" class="archive-article-date">
-  	<time datetime="2018-07-10T15:21:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/盒子模型/">盒子模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/" class="archive-article-date">
-  	<time datetime="2018-01-09T02:19:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/">iOS核心动画技巧学习-CALayer常用属性2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/" class="archive-article-date">
-  	<time datetime="2018-01-05T06:19:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/">iOS核心动画技巧学习 - CALayer处理事件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/05/iOS核心动画技巧学习-布局/" class="archive-article-date">
-  	<time datetime="2018-01-05T03:38:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/05/iOS核心动画技巧学习-布局/">iOS核心动画技巧学习 -- 布局</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/" class="archive-article-date">
-  	<time datetime="2018-01-04T06:39:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/">iOS核心动画技巧学习 -- drawRect方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/" class="archive-article-date">
+        
+        <a href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/" class="archive-article-date">
   	<time datetime="2018-01-04T03:06:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/">iOS核心动画技巧学习 -- CALayer常用属性</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>contents属性<ul>
+<li>类型<ul>
+<li>id类型的历史原因:因为在MAC OS系统上,这个属性对<code>CGImage</code>和<code>NSImage</code>的类型值都起作用</li>
+<li>但是在iOS平台将<code>UIImage</code>赋值给它,编译会通过,然后你得到的图层将是空白的<img src="http://oxn0lcico.bkt.clouddn.com/Snip20180103_9.png" alt=""></li>
+<li>但是其实我们真正要赋值的类型应该是<code>CGImageRef</code>,是一个指向<code>CGImage</code>结构的指针;不过<code>UIImage</code>有一个<code>CGimage</code>属性,它返回一个<code>CGImageRef</code>,点击进去<code>UIImage</code>的头文件可以看到:<code>@property(nullable, nonatomic,readonly) CGImageRef CGImage; // returns underlying CGImageRef or nil if CIImage based</code><a id="more"></a></li>
+</ul>
+</li>
+<li>使用<ul>
+<li>直接使用属性会报错,因为CGImageRef并不是一个真正的Cocoa对象，而是一个Core Foundation类型<img src="http://oxn0lcico.bkt.clouddn.com/Snip20180103_11.png" alt=""></li>
+<li><code>__bridge</code>转换<img src="http://oxn0lcico.bkt.clouddn.com/Snip20180103_8.png" alt=""></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>contentGravity属性<ul>
+<li>问题: 上面我们使用<code>CALayer</code>在一个普通的<code>UIView</code>上显示了一张图片,但是我们发现了,图片中的霉霉变胖了(虽然现实中也变胖了不少,- -!),因为加载的图片不是一个方的为了适应视图,图片被拉伸了</li>
+<li>UIImageView:  <code>view.contentMode = UIViewContentModeScaleAspectFit;</code></li>
+<li>CALayer: 与<code>contentMode</code>对应的属性是<code>contentGravity</code>,是一个<code>NSString</code>类型,而不是想<code>contentMode</code>是个枚举类型,此处我们使用<code>self.layerView.layer.contentsGravity = kCAGravityResizeAspect;</code>后,看霉霉减肥成功啦, : )<img src="http://oxn0lcico.bkt.clouddn.com/Snip20180103_12.png" alt=""></li>
+<li>具体值<ul>
+<li>kCAGravityCenter</li>
+<li>kCAGravityTop</li>
+<li>kCAGravityBottom</li>
+<li>kCAGravityLeft</li>
+<li>kCAGravityRight</li>
+<li>kCAGravityTopLeft</li>
+<li>kCAGravityTopRight</li>
+<li>kCAGravityBottomLeft</li>
+<li>kCAGravityBottomRight</li>
+<li>kCAGravityResize</li>
+<li>kCAGravityResizeAspect</li>
+<li>kCAGravityResizeAspectFill</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>contentsScale属性<ul>
+<li>默认值 : 1.0</li>
+<li>此处由于设置了 <code>contentsGravity</code>属性,图片已经被拉伸以适应图层的边界,所以设置<code>contentsScale</code>没有作用</li>
+<li>如果单纯的想放大图层的<code>contents</code>图片,可以通过使用图层的<code>transform`</code>affineTransform`来达到目的</li>
+<li>contentsScale其实属于支持高分辨率屏幕机制的一部分.用来判断再绘制图层的时候应该为图片创建的空间大小和显示的图片的拉伸度(假设没有手动设置<code>contentsGravity</code>),的<code>UIView</code>有个类似的功能但是用到非常少的<code>contentScaleFactor</code>属性</li>
+<li>当<code>contentsScale</code>设置为1.0,将会以每个点1个像素绘制图片,如果2.0,将会以每个点2个像素绘制图片(就是Retina屏幕),但是设置<code>contentsScale</code>并不会影响我们使用<code>kCAGravityResizeAspect</code>,因为<code>kCAGravityResizeAspect</code>就是拉伸图片以适应图层,不会考虑分辨率的问题,但是设置<code>contentsGravity</code>为不会拉伸图片的<code>kCAGravityCenter</code>,就会有区别,如图<img src="http://oxn0lcico.bkt.clouddn.com/contentsGravity%E9%97%AE%E9%A2%98.gif" alt=""></li>
+<li><strong>原因:</strong>因为CGImage没有像UIImage的拉伸概念,当我们使用UIImage类去读取我们的图片时候,他读取了高质量Retina版本的图片,然后用CGImage来设置图层的内容时,拉伸这个因素在转换的时候就丢失了 </li>
+<li><strong>解决:</strong>手动设置 <code>contentsScale</code><img src="http://oxn0lcico.bkt.clouddn.com/contentsGravity%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3.gif" alt=""></li>
+</ul>
+</li>
+<li>masksToBounds属性<ul>
+<li><code>UIView</code> 有 <code>clipsToBounds</code>属性来决定是否显示超出边界的内容</li>
+<li><code>CALayer</code> 有 <code>masksToBounds</code>与之对应<img src="http://oxn0lcico.bkt.clouddn.com/masksToBounds.gif" alt=""></li>
+</ul>
+</li>
+<li>contentsRect属性<ul>
+<li><code>CALayer</code>的<code>contentsRect</code>属性允许我们在图层边框里面显示图片的一个区域,它与<code>bounds`</code>frame<code>不同,</code>contentsRect`不是按<em>点</em> 来计算而是用了<em>单位坐标</em> ,是一个0到1之间的相对值,是相对于图层里面的图片的尺寸的<ul>
+<li>点 —–  逻辑像素,硬件设备上最小的显示单元;标准设备上一个点就是一个像素,5s,6,7,8都是一个点2x2个像素,6p,7p,8p就是3x3个</li>
+<li>像素 —– 像素是组成图象的最基本单元要素,一个像素有多大主要取决于显示器的分辨率，相同面积不同分辨率的显示屏，其像素点大小就不相同</li>
+<li>单位 —– 对于与图片大小或是图层边界相关的显示，单位坐标是一个方便的度量方式， 当大小改变的时候，也不需要再次调整。单位坐标在OpenGL这种纹理坐标系统中用得很多，Core Animation中也用到了单位坐标</li>
+</ul>
+</li>
+<li>默认值是 {0,0,1,1},默认整个图片是可见的</li>
+<li>用处 : 将多张图片打包整合到一张图片一次性载入,相比多次载入不同的图片,会节省内存 载入时间,渲染性能等方面,但是用的要求比较苛刻,不再讨论 </li>
+</ul>
+</li>
+<li>contentsCenter属性<ul>
+<li>字<code>不</code>如其意,它跟图片的位置没有关系,它定义了一个固定的边框和一个在图层上可拉伸的区域</li>
+<li>在 <code>Interface Builder</code>窗口也有,感兴趣可以自己去改变值看看效果<img src="http://oxn0lcico.bkt.clouddn.com/Snip20180104_15-min.png" alt=""></li>
+</ul>
+</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -466,106 +297,112 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/03/iOS核心动画技巧学习-CALayer的历史追溯/" class="archive-article-date">
-  	<time datetime="2018-01-03T07:01:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-03</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          iOS核心动画技巧学习 -- drawRect方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/03/iOS核心动画技巧学习-CALayer的历史追溯/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS核心动画技巧学习 -- CALayer的历史追溯</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/03/iOS核心动画技巧学习-CALayer的历史追溯/">iOS核心动画技巧学习 -- CALayer的历史追溯</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/20/终端提交代码到github/" class="archive-article-date">
-  	<time datetime="2017-12-20T05:45:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/20/终端提交代码到github/">终端提交代码到github</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
+  
+
   
 
 
@@ -589,8 +426,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

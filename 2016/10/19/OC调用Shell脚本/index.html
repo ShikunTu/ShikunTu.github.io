@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 涂世坤的博客</title>
+  <title> OC调用Shell脚本 | 涂世坤的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="tushikun_blog | blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="涂世坤的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="AppleScriptAppleScript是Mac OS X上的脚本语言,写好的脚本语言可以使用NSTask执行,而脚本本身可以做很多事情。编译器自带的Apple Script Editor就在应用程序下面,打开以后界面很简单,左上角四个键,录制,停止,运行,编译.中间是代码框,最下面是描述和系统的日志输出。">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" OC调用Shell脚本">
+<meta property="og:url" content="http://yoursite.com/2016/10/19/OC调用Shell脚本/index.html">
 <meta property="og:site_name" content="涂世坤的博客">
-<meta property="og:description" content="tushikun_blog | blog">
+<meta property="og:description" content="AppleScriptAppleScript是Mac OS X上的脚本语言,写好的脚本语言可以使用NSTask执行,而脚本本身可以做很多事情。编译器自带的Apple Script Editor就在应用程序下面,打开以后界面很简单,左上角四个键,录制,停止,运行,编译.中间是代码框,最下面是描述和系统的日志输出。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p1.bqimg.com/4851/699e4d26be528adf.png">
+<meta property="og:image" content="http://i1.piimg.com/4851/3707e19a23f9e958.png">
+<meta property="og:image" content="http://p1.bpimg.com/4851/1664802e8e47df8f.png">
+<meta property="og:updated_time" content="2016-11-21T02:28:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="涂世坤的博客">
-<meta name="twitter:description" content="tushikun_blog | blog">
+<meta name="twitter:title" content=" OC调用Shell脚本">
+<meta name="twitter:description" content="AppleScriptAppleScript是Mac OS X上的脚本语言,写好的脚本语言可以使用NSTask执行,而脚本本身可以做很多事情。编译器自带的Apple Script Editor就在应用程序下面,打开以后界面很简单,左上角四个键,录制,停止,运行,编译.中间是代码框,最下面是描述和系统的日志输出。">
+<meta name="twitter:image" content="http://p1.bqimg.com/4851/699e4d26be528adf.png">
   
     <link rel="alternative" href="/atom.xml" title="涂世坤的博客" type="application/atom+xml">
   
@@ -157,415 +162,211 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-OC调用Shell脚本" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+       OC调用Shell脚本
+    </h1>
+  
+
+        
+        <a href="/2016/10/19/OC调用Shell脚本/" class="archive-article-date">
+  	<time datetime="2016-10-19T03:38:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-19</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="AppleScript"><a href="#AppleScript" class="headerlink" title="AppleScript"></a>AppleScript</h1><h5 id="AppleScript是Mac-OS-X上的脚本语言-写好的脚本语言可以使用NSTask执行-而脚本本身可以做很多事情。"><a href="#AppleScript是Mac-OS-X上的脚本语言-写好的脚本语言可以使用NSTask执行-而脚本本身可以做很多事情。" class="headerlink" title="AppleScript是Mac OS X上的脚本语言,写好的脚本语言可以使用NSTask执行,而脚本本身可以做很多事情。"></a>AppleScript是Mac OS X上的脚本语言,写好的脚本语言可以使用NSTask执行,而脚本本身可以做很多事情。</h5><h5 id="编译器自带的Apple-Script-Editor就在应用程序下面-打开以后界面很简单-左上角四个键-录制-停止-运行-编译-中间是代码框-最下面是描述和系统的日志输出。"><a href="#编译器自带的Apple-Script-Editor就在应用程序下面-打开以后界面很简单-左上角四个键-录制-停止-运行-编译-中间是代码框-最下面是描述和系统的日志输出。" class="headerlink" title="编译器自带的Apple Script Editor就在应用程序下面,打开以后界面很简单,左上角四个键,录制,停止,运行,编译.中间是代码框,最下面是描述和系统的日志输出。"></a>编译器自带的Apple Script Editor就在应用程序下面,打开以后界面很简单,左上角四个键,录制,停止,运行,编译.中间是代码框,最下面是描述和系统的日志输出。</h5><a id="more"></a>
+<h5 id="脚本文件语法也不需要我们学-直接照着例子来就行"><a href="#脚本文件语法也不需要我们学-直接照着例子来就行" class="headerlink" title="脚本文件语法也不需要我们学,直接照着例子来就行"></a>脚本文件语法也不需要我们学,直接照着例子来就行</h5><h3 id="示例1-让系统嗡一下"><a href="#示例1-让系统嗡一下" class="headerlink" title="示例1   让系统嗡一下"></a>示例1   让系统嗡一下</h3><p><em>AppleScript代码</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">beep</span><br></pre></td></tr></table></figure>
+<p>敲完运行，需要主语的是除了关键字和引号内部的字符，其他都不需要注意大小写，运行的时候会帮你格式化好</p>
+<h3 id="示例2-清除废纸篓"><a href="#示例2-清除废纸篓" class="headerlink" title="示例2  清除废纸篓"></a>示例2  清除废纸篓</h3><p><em>AppleScript代码</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tell application &quot;Finder&quot;</span><br><span class="line">	</span><br><span class="line">	empty the trash</span><br><span class="line">	</span><br><span class="line">end tell</span><br></pre></td></tr></table></figure>
+<p>tell application是呼唤程序，然后程序卸载引号内，即让程序做什么，end tell是对程序的调用结束。empty the trash是finder的专属操作。</p>
+<h5 id="但是在项目中用到最多的还是直接调用shell的特性-其实一句话就完事"><a href="#但是在项目中用到最多的还是直接调用shell的特性-其实一句话就完事" class="headerlink" title="但是在项目中用到最多的还是直接调用shell的特性,其实一句话就完事"></a>但是在项目中用到最多的还是直接调用shell的特性,其实一句话就完事</h5><p><em>AppleScript代码</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">do shell script &quot;example A&quot;</span><br></pre></td></tr></table></figure>
+<h5 id="需要注意的是-AppleScript默认的shell是去找-bin-sh-在xcode里面创建shell文件头文件也可以看到-而我们的终端则是-bin-bash-可能会出现在终端中可以运行-脚本中却说找不到命令的情况"><a href="#需要注意的是-AppleScript默认的shell是去找-bin-sh-在xcode里面创建shell文件头文件也可以看到-而我们的终端则是-bin-bash-可能会出现在终端中可以运行-脚本中却说找不到命令的情况" class="headerlink" title="需要注意的是,AppleScript默认的shell是去找/bin/sh(在xcode里面创建shell文件头文件也可以看到),而我们的终端则是/bin/bash,可能会出现在终端中可以运行,脚本中却说找不到命令的情况"></a>需要注意的是,AppleScript默认的shell是去找/bin/sh(在xcode里面创建shell文件头文件也可以看到),而我们的终端则是/bin/bash,可能会出现在终端中可以运行,脚本中却说找不到命令的情况</h5><p><img src="http://p1.bqimg.com/4851/699e4d26be528adf.png" alt=""></p>
+<h5 id="编译器的特点-应用程序可以替换"><a href="#编译器的特点-应用程序可以替换" class="headerlink" title="编译器的特点  应用程序可以替换"></a>编译器的特点  应用程序可以替换</h5><p><em>AppleScript代码</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tell application &quot;Yaphets&quot;</span><br></pre></td></tr></table></figure>
+<p>明显Yaphets在计算机上是找不到的,那么这时候会跳出窗口让你选择Yaphets代表的程序,并且替换,后续编写使用Yaphets会自动选择你刚刚替换的程序,而且下次打开编译器仍然保持</p>
+<p><img src="http://i1.piimg.com/4851/3707e19a23f9e958.png" alt=""></p>
+<h5 id="设置变量-set-规则和c类似"><a href="#设置变量-set-规则和c类似" class="headerlink" title="设置变量 set 规则和c类似"></a>设置变量 set 规则和c类似</h5><p><em>AppleScript代码</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set picPath to &quot;/documents&quot;</span><br></pre></td></tr></table></figure>
+<p>定义以后,后续文本可以使用,也可以修改<br><em>AppleScript代码</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">set DDd to 1</span><br><span class="line">set DDd to &quot;Hello world&quot;</span><br><span class="line">set aaa to DDd</span><br><span class="line">display dialog aaa</span><br><span class="line">display dialog DDd</span><br><span class="line">set DDd to 1</span><br><span class="line">display dialog aaa</span><br><span class="line">display dialog DDd</span><br></pre></td></tr></table></figure>
+<p>dispaly dialog 会用一个对话框显示输出,拼接字符串用&amp;<br><img src="http://p1.bpimg.com/4851/1664802e8e47df8f.png" alt=""></p>
+<h3 id="程序调用脚本"><a href="#程序调用脚本" class="headerlink" title="程序调用脚本"></a>程序调用脚本</h3><h5 id="首先我们可以用NSAppleScript类直接运行脚本-可以用源码也可以用文件的形式-而且文件可以是源码也可以是编译好的"><a href="#首先我们可以用NSAppleScript类直接运行脚本-可以用源码也可以用文件的形式-而且文件可以是源码也可以是编译好的" class="headerlink" title="首先我们可以用NSAppleScript类直接运行脚本,可以用源码也可以用文件的形式,而且文件可以是源码也可以是编译好的"></a>首先我们可以用NSAppleScript类直接运行脚本,可以用源码也可以用文件的形式,而且文件可以是源码也可以是编译好的</h5><p><em>AppleScript代码</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set i to 100</span><br></pre></td></tr></table></figure>
+<p>那么这里的脚本值就是100</p>
+<ul>
+<li>普通类型</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">NSAppleEventDescriptor *eventDescriptor = nil;  </span><br><span class="line">NSAppleScript *script = nil;  </span><br><span class="line">NSBundle *bunlde = [NSBundle mainBundle];  </span><br><span class="line">NSString *scriptPath = [bunlde pathForResource:@&quot;demo&quot;   </span><br><span class="line">                                                               ofType:@&quot;scpt&quot;   </span><br><span class="line">                                                        inDirectory:nil];  </span><br><span class="line">if (scriptPath)  </span><br><span class="line">&#123;  </span><br><span class="line">    script = [[NSAppleScirpt alloc] initWithContentsOfURL:[NSURL fileURLWithPath:scriptPath] error:nil];  </span><br><span class="line">    if (script)  </span><br><span class="line">    &#123;  </span><br><span class="line">        eventDescriptor = [script executeAndReturnError:nil];  </span><br><span class="line">        if (eventDescriptor)  </span><br><span class="line">        &#123;  </span><br><span class="line">            NSLog(@&quot;%@&quot;, [eventDescriptor stringValue]);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是最简单的返回值,如果返回值是list(NSArray)或者record(NSDictionary),需要更加麻烦一点</p>
+<ul>
+<li>list 类型</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NSAppleEventDescriptor *e = [NSTask gtm_runAppleScript:@&quot;value&quot;];  </span><br><span class="line">int count = [e numberOfItems];  </span><br><span class="line">for (int i = 1; i &lt;= count; i++)  </span><br><span class="line">&#123;  </span><br><span class="line">    NSAppleEventDescriptor *d = [e descriptorAtIndex:i];  </span><br><span class="line">    NSLog(@&quot;%@&quot;, [d stringValue]);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>record类型</li>
+</ul>
+<p><em>AppleScript代码</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;key1:1, key2:2, key3:3&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">NSAppleEventDescriptor *e = [NSTask gtm_runAppleScript:@&quot;value&quot;];  </span><br><span class="line">// 其实就返回一个record的话，count就是1  </span><br><span class="line">int count = [e numberOfItems];  </span><br><span class="line">for (int i = 1; i &lt;= count; i++)  </span><br><span class="line">&#123;  </span><br><span class="line">    NSAppleEventDescriptor *d = [e descriptorAtIndex:i];  </span><br><span class="line">    // 这里会是6条  </span><br><span class="line">    int items = [d numberOfItems];  </span><br><span class="line">    NSMutableDictionary *dic = [NSMutableDictionary dictionary];  </span><br><span class="line">    for (int j = 1; j &lt;= items; j +=2)  </span><br><span class="line">    &#123;  </span><br><span class="line">        // 前一条是key的名字  </span><br><span class="line">        NSAppleEventDescriptor *dKey = [d descriptorAtIndex:j];  </span><br><span class="line">        NSString *key = [dKey stringValue];  </span><br><span class="line">       // 后一条是对应的值  </span><br><span class="line">        NSAppleEventDescriptor *dValue = [d descriptorAtIndex:j+1];  </span><br><span class="line">        NSString *value = [dValue stringValue];  </span><br><span class="line">        [dic setObject:value forKey:key];  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/08/dealloc用法/" class="archive-article-date">
-  	<time datetime="2018-08-08T12:24:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/08/dealloc用法/">dealloc用法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/14/深入探讨Block循环引用/" class="archive-article-date">
-  	<time datetime="2018-07-13T16:18:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/14/深入探讨Block循环引用/">深入探讨Block循环引用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/盒子模型/" class="archive-article-date">
-  	<time datetime="2018-07-10T15:21:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/盒子模型/">盒子模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/" class="archive-article-date">
-  	<time datetime="2018-01-09T02:19:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/">iOS核心动画技巧学习-CALayer常用属性2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/" class="archive-article-date">
-  	<time datetime="2018-01-05T06:19:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/">iOS核心动画技巧学习 - CALayer处理事件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/05/iOS核心动画技巧学习-布局/" class="archive-article-date">
-  	<time datetime="2018-01-05T03:38:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/05/iOS核心动画技巧学习-布局/">iOS核心动画技巧学习 -- 布局</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/" class="archive-article-date">
-  	<time datetime="2018-01-04T06:39:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/">iOS核心动画技巧学习 -- drawRect方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/" class="archive-article-date">
-  	<time datetime="2018-01-04T03:06:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/">iOS核心动画技巧学习 -- CALayer常用属性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/03/iOS核心动画技巧学习-CALayer的历史追溯/" class="archive-article-date">
-  	<time datetime="2018-01-03T07:01:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/03/iOS核心动画技巧学习-CALayer的历史追溯/">iOS核心动画技巧学习 -- CALayer的历史追溯</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/20/终端提交代码到github/" class="archive-article-date">
-  	<time datetime="2017-12-20T05:45:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/20/终端提交代码到github/">终端提交代码到github</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="/categories/other//" class="article-tag-list-link color3">其他</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2016/10/19/OC调用Shell脚本/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/10/19/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2016/10/14/chrome删除url/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">chrome删除url</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -589,8 +390,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

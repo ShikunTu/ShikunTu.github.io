@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 涂世坤的博客</title>
+  <title>深入探讨Block循环引用 | 涂世坤的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="tushikun_blog | blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="涂世坤的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="循环引用由来俩个对象相互强引用,俩个对象的retainCount一直无法为0,内存无法释放造成内存泄漏;多个对象同理; 一. __strong __weak实现原理 所有权修饰:符:__strong,__weak,__unsafe_unretained,__autoreleasing;所有权修饰符默认不写是__strong  __strong示例 对象持有自己生成的时候用alloc/new/cop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入探讨Block循环引用">
+<meta property="og:url" content="http://yoursite.com/2018/07/14/深入探讨Block循环引用/index.html">
 <meta property="og:site_name" content="涂世坤的博客">
-<meta property="og:description" content="tushikun_blog | blog">
+<meta property="og:description" content="循环引用由来俩个对象相互强引用,俩个对象的retainCount一直无法为0,内存无法释放造成内存泄漏;多个对象同理; 一. __strong __weak实现原理 所有权修饰:符:__strong,__weak,__unsafe_unretained,__autoreleasing;所有权修饰符默认不写是__strong  __strong示例 对象持有自己生成的时候用alloc/new/cop">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-07T13:59:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="涂世坤的博客">
-<meta name="twitter:description" content="tushikun_blog | blog">
+<meta name="twitter:title" content="深入探讨Block循环引用">
+<meta name="twitter:description" content="循环引用由来俩个对象相互强引用,俩个对象的retainCount一直无法为0,内存无法释放造成内存泄漏;多个对象同理; 一. __strong __weak实现原理 所有权修饰:符:__strong,__weak,__unsafe_unretained,__autoreleasing;所有权修饰符默认不写是__strong  __strong示例 对象持有自己生成的时候用alloc/new/cop">
   
     <link rel="alternative" href="/atom.xml" title="涂世坤的博客" type="application/atom+xml">
   
@@ -157,389 +158,188 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-深入探讨Block循环引用" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/08/dealloc用法/" class="archive-article-date">
-  	<time datetime="2018-08-08T12:24:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/08/dealloc用法/">dealloc用法</a>
+    <h1 class="article-title" itemprop="name">
+      深入探讨Block循环引用
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/14/深入探讨Block循环引用/" class="archive-article-date">
+        
+        <a href="/2018/07/14/深入探讨Block循环引用/" class="archive-article-date">
   	<time datetime="2018-07-13T16:18:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/14/深入探讨Block循环引用/">深入探讨Block循环引用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+        
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/盒子模型/" class="archive-article-date">
-  	<time datetime="2018-07-10T15:21:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/盒子模型/">盒子模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/" class="archive-article-date">
-  	<time datetime="2018-01-09T02:19:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/09/iOS核心动画技巧学习-CALayer常用属性2/">iOS核心动画技巧学习-CALayer常用属性2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/" class="archive-article-date">
-  	<time datetime="2018-01-05T06:19:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/05/iOS核心动画技巧学习-CALayer处理事件/">iOS核心动画技巧学习 - CALayer处理事件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/05/iOS核心动画技巧学习-布局/" class="archive-article-date">
-  	<time datetime="2018-01-05T03:38:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/05/iOS核心动画技巧学习-布局/">iOS核心动画技巧学习 -- 布局</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/" class="archive-article-date">
-  	<time datetime="2018-01-04T06:39:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/04/iOS核心动画技巧学习-drawRect方法/">iOS核心动画技巧学习 -- drawRect方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/" class="archive-article-date">
-  	<time datetime="2018-01-04T03:06:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/04/iOS核心动画技巧学习-CALayer常用属性/">iOS核心动画技巧学习 -- CALayer常用属性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/03/iOS核心动画技巧学习-CALayer的历史追溯/" class="archive-article-date">
-  	<time datetime="2018-01-03T07:01:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/03/iOS核心动画技巧学习-CALayer的历史追溯/">iOS核心动画技巧学习 -- CALayer的历史追溯</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
+    <div class="article-entry" itemprop="articleBody">
       
-        </div></section>
+        <h3 id="循环引用由来"><a href="#循环引用由来" class="headerlink" title="循环引用由来"></a>循环引用由来</h3><p>俩个对象相互强引用,俩个对象的<code>retainCount</code>一直无法为0,内存无法释放造成内存泄漏;<br>多个对象同理;</p>
+<h3 id="一-strong-weak实现原理"><a href="#一-strong-weak实现原理" class="headerlink" title="一. __strong __weak实现原理"></a>一. <code>__strong</code> <code>__weak</code>实现原理</h3><blockquote>
+<p>所有权修饰:符:<code>__strong</code>,<code>__weak</code>,<code>__unsafe_unretained</code>,<code>__autoreleasing</code>;<br>所有权修饰符默认不写是<code>__strong</code></p>
+</blockquote>
+<h5 id="strong示例"><a href="#strong示例" class="headerlink" title="__strong示例"></a><code>__strong</code>示例</h5><blockquote>
+<p>对象持有自己<br>生成的时候用<code>alloc/new/copy/mutableCopy</code></p>
+</blockquote>
+<p>声明一个<code>__strong</code>对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">id __strong obj = [[NSObject alloc] init];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>LLVM编译器转换为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id __attribute__((objc_ownership(strong))) obj = ((NSObject *(*)(id, SEL))(void *)objc_msgSend)((id)((NSObject *(*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass(&quot;NSObject&quot;), sel_registerName(&quot;alloc&quot;)), sel_registerName(&quot;init&quot;));</span><br></pre></td></tr></table></figure>
+<p>简单的调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">id obj = objc_msgSend(NSObject, @selector(alloc));</span><br><span class="line">objc_msgSend(obj,selector(init));</span><br><span class="line">objc_release(obj);</span><br></pre></td></tr></table></figure>
+<p>由于在<code>ARC</code>下,会自动插入<code>release</code>代码,所以不难理解<br><a id="more"></a></p>
+<blockquote>
+<p>对象不持有自己<br>生成的时候不使用<code>alloc/new/copy/mutableCopy</code><br>例如使用类方法</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">id __strong obj = [NSArray array];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>LLVM编译器转换为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id __attribute__((objc_ownership(strong))) array = ((NSMutableArray *(*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass(&quot;NSMutableArray&quot;), sel_registerName(&quot;array&quot;));</span><br></pre></td></tr></table></figure>
+<p>简单的调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">id obj = objc_msgSend(NSMutableArray, @selector(array));</span><br><span class="line">objc_retainAutoreleasedReturnValue(obj);</span><br><span class="line">objc_release(obj);</span><br></pre></td></tr></table></figure>
+<p>相比之前的对象持有自己的情况不同,此处多出了一个<code>objc_retainAutoreleasedReturnValue</code>函数</p>
+<p><strong>此处有三个函数需要说明(文档的8.13,8.14,8.15)</strong></p>
+<p>1.<code>id objc_retainAutoRelease(id value)</code></p>
+<ul>
+<li>描述<blockquote>
+<p>If value is null, this call has no effect. Otherwise, it performs a retain operation followed by an autorelease operation.</p>
+</blockquote>
+</li>
+<li>实现<blockquote>
+<p>id objc_retainAutorelease(id value) {return objc_autorelease(objc_retain(value));}</p>
+</blockquote>
+</li>
+</ul>
+<p>2.<code>id objc_retainAutoReleaseReturnValue(id value)</code></p>
+<ul>
+<li>描述<blockquote>
+<p>If value is null, this call has no effect. Otherwise, it performs a retain operation followed by the operation described in objc_autoreleaseReturnValue</p>
+</blockquote>
+</li>
+<li>实现<blockquote>
+<p>id objc_retainAutoreleaseReturnValue(id value) {return objc_autoreleaseReturnValue(objc_retain(value));}</p>
+</blockquote>
+</li>
+</ul>
+<p>3.<code>id objc_retainAutoReleasedReturnValue(id value)</code></p>
+<ul>
+<li>描述<blockquote>
+<p>If value is null, this call has no effect. Otherwise, it attempts to accept a hand off of a retain count from a call to objc_autoreleaseReturnValue on value in a recently-called function or something it calls. If that fails, it performs a retain operation exactly like objc_retain.</p>
+<p>这个函数用于自己持有对象的函数(retain),它持有的对象返回注册在autoreleasepool中的对象非的方法或者是函数的返回值</p>
+</blockquote>
+</li>
+</ul>
+<p><code>ARC</code>中原本对象的生成是要注册到<code>autoreleasepool</code>中,但是调用了<code>id objc_autoReleaseReturnValue(id value)</code>,又紧接着调用了<code>id objc_retainAutoReleasedReturnValue(id value)</code>,那么<code>id objc_retainAutoReleasedReturnValue(id value)</code>会去坚持该函数的方法或者函数调用方法的执行命令列表.如果有<code>id objc_retainAutoReleasedReturnValue(id value)</code>方法,那么对象就直接返回给方法或者函数的调用方,达到了对象不注册到autoreleasepool,也拿到了相应的对象</p>
+<h5 id="weak示例"><a href="#weak示例" class="headerlink" title="__weak示例"></a><code>__weak</code>示例</h5><p>声明一个__weak对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">id __weak obj = strongObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>LLVM编译器转换为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id __attribute__((objc_ownership(none))) obj1 = strongObj;</span><br></pre></td></tr></table></figure>
+<p>简单的调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">id obj ;</span><br><span class="line">objc_initWeak(&amp;obj,strongObj);</span><br><span class="line">objc_destoryWeak(&amp;obj);</span><br></pre></td></tr></table></figure>
+<p>此时我们去文档查看<code>objc_initWeak</code>(8.7)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">id objc_initWeak(id *object, id value) &#123;</span><br><span class="line">*object = nil;</span><br><span class="line">return objc_storeWeak(object, value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>先将传入的obj变为nil,然后执行<code>objc_storeWeak</code>函数,再看<code>objc_destoryWeak</code>函数(8.6)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">void objc_destroyWeak(id *object) &#123;</span><br><span class="line">objc_storeWeak(object, nil);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>也是去调用<code>objc_storeWeak</code>唯一不同的是传参不同,一个是<code>nil</code>,一个是<code>value</code>,接下来不用多说,看<code>objc_storeWeak</code>函数(8.18)</p>
+<blockquote>
+<p>If value is a null pointer or the object to which it points has begun deallocation, object is assigned null and unregistered as a <strong>weak object. Otherwise, object is registered as a </strong>weak object or has its registration updated to point to value.<br>如果value是空指针或它指向的对象已开始解除分配，则将对象指定为null并取消注册为<strong>weak对象。 否则，将对象注册为</strong>weak对象或将其注册更新为指向值。</p>
+</blockquote>
+<p><code>objc_storeWeak</code>作用很明显了.<code>weak</code>表是一个<code>Hash table</code>,来维护weak修饰的指针变量,<code>objc_storeWeak</code>传入第一个变量作为Key注册到weak表中,再根据第二个参数决定是否移除.如果第二个参数为0,那么把__weak变量从weak表中删除记录,并从引用计数表中删除对应的键值记录</p>
+<h3 id="二-weakSelf-strongSelf用法"><a href="#二-weakSelf-strongSelf用法" class="headerlink" title="二. weakSelf strongSelf用法"></a>二. <code>weakSelf</code> <code>strongSelf</code>用法</h3><p>众所周知,打破循环引用使用<code>__weak</code>来修饰<code>self</code>,例如</p>
+<blockquote>
+<p><code>__weak __typeof(self)weakSelf = self</code>,这是<code>AFN</code>里面的写法<br><code>__weak typeof(self) weakSelf = self</code>,这是我们平时的写法</p>
+</blockquote>
+<p>那么 <code>__typeof</code> 和 <code>typeof</code>有什么区别呢?其实两者是一样的,只不过兼容的问题 <a href="http://gcc.gnu.org/onlinedocs/gcc/Alternate-Keywords.html#Alternate-Keywords" target="_blank" rel="noopener"><strong>区别详细资料</strong></a></p>
+<p>那么 <code>strongSelf</code>是用来干嘛的呢,相信看过<code>AFNetworking</code>等一些第三方源码的会发现这种<code>strong weak dance</code>很常见,在<code>block</code>里面,如果有一些延迟操作里面用到了<code>weakSelf</code>,很有可能在用到之前它就已经释放了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">typedef void(^ExampleBlock)(void);</span><br><span class="line">@interface Person : NSObject</span><br><span class="line"></span><br><span class="line">@property(nonatomic,copy) ExampleBlock exampleBlock;</span><br><span class="line">@property (nonatomic, copy)NSString *name;</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#import &quot;ViewController.h&quot;</span><br><span class="line">#import &quot;Person.h&quot;</span><br><span class="line"></span><br><span class="line">@interface ViewController ()</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation ViewController</span><br><span class="line"></span><br><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">[super viewDidLoad];</span><br><span class="line"></span><br><span class="line">Person *person = [[Person alloc] init];</span><br><span class="line">person.name = @&quot;hello world&quot;;</span><br><span class="line"></span><br><span class="line">__weak typeof(person) weakSelf = person;</span><br><span class="line"></span><br><span class="line">person.exampleBlock = ^&#123;</span><br><span class="line"></span><br><span class="line">dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line"></span><br><span class="line">NSLog(@&quot;%@&quot;,weakSelf.name);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">person.exampleBlock();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>打印结果: null</p>
+</blockquote>
+<p>在<code>exampleBlock()</code>这个<code>block</code>执行结束后,<code>person</code>这个实例化的对象由于没有强指针指向,出了<code>{}</code>作用域就释放的了;当<code>dispatch_after</code>这个函数再次捕获<code>__weak</code>修饰的<code>person</code>对象的时候,由于原对象已经释放,所以会打出<code>null</code></p>
+<p>这时候<code>__strong</code>就派上用场了,如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">typedef void(^ExampleBlock)(void);</span><br><span class="line">@interface Person : NSObject</span><br><span class="line"></span><br><span class="line">@property(nonatomic,copy) ExampleBlock exampleBlock;</span><br><span class="line">@property (nonatomic, copy)NSString *name;</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#import &quot;ViewController.h&quot;</span><br><span class="line">#import &quot;Person.h&quot;</span><br><span class="line"></span><br><span class="line">@interface ViewController ()</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation ViewController</span><br><span class="line"></span><br><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">[super viewDidLoad];</span><br><span class="line"></span><br><span class="line">Person *person = [[Person alloc] init];</span><br><span class="line">person.name = @&quot;hello world&quot;;</span><br><span class="line"></span><br><span class="line">__weak typeof(person) weakSelf = person;</span><br><span class="line"></span><br><span class="line">person.exampleBlock = ^&#123;</span><br><span class="line"></span><br><span class="line">__strong __typeof(person) strongSelf = weakSelf;      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line"></span><br><span class="line">NSLog(@&quot;%@&quot;,strongSelf.name);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">person.exampleBlock();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&gt; 打印结果: hello world</span><br></pre></td></tr></table></figure>
+<h3 id="三-weakify-strongify实现原理"><a href="#三-weakify-strongify实现原理" class="headerlink" title="三. @weakify @strongify实现原理"></a>三. <code>@weakify</code> <code>@strongify</code>实现原理</h3><blockquote>
+<p>这俩个宏是<code>RAC</code>避免循环引用的宏,虽然不用<code>RAC</code>用不到,不过我们还是可以看下它们的实现过程</p>
+</blockquote>
+<p><a href="https://github.com/ReactiveCocoa/ReactiveCocoa/blob/7877f99bdfb4be1c82c4804082e99c35d0a93a91/ReactiveCocoa/Objective-C/extobjc/EXTScope.h#L45-L47" target="_blank" rel="noopener"><strong>@weakify</strong></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#define weakify(...) \</span><br><span class="line">rac_keywordify \</span><br><span class="line">metamacro_foreach_cxt(rac_weakify_,, __weak, __VA_ARGS__)</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/ReactiveCocoa/ReactiveCocoa/blob/7877f99bdfb4be1c82c4804082e99c35d0a93a91/ReactiveCocoa/Objective-C/extobjc/EXTScope.h#L83-L88" target="_blank" rel="noopener"><strong>@strongify</strong></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#define strongify(...) \</span><br><span class="line">rac_keywordify \</span><br><span class="line">_Pragma(&quot;clang diagnostic push&quot;) \</span><br><span class="line">_Pragma(&quot;clang diagnostic ignored \&quot;-Wshadow\&quot;&quot;) \</span><br><span class="line">metamacro_foreach(rac_strongify_,, __VA_ARGS__) \</span><br><span class="line">_Pragma(&quot;clang diagnostic pop&quot;)</span><br></pre></td></tr></table></figure>
+<p>根本毫无头绪是不是,再接着往下看<br><a href="https://github.com/ReactiveCocoa/ReactiveCocoa/blob/7877f99bdfb4be1c82c4804082e99c35d0a93a91/ReactiveCocoa/Objective-C/extobjc/EXTScope.h#L114-L118" target="_blank" rel="noopener"><strong>rac_keywordify</strong></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#if DEBUG</span><br><span class="line">#define rac_keywordify autoreleasepool &#123;&#125;</span><br><span class="line">#else</span><br><span class="line">#define rac_keywordify try &#123;&#125; @catch (...) &#123;&#125;</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+<p>我们发现在<code>debug</code>模式下使用了<code>@autoreleasepool</code>,这是为了维持编译器的分析能力;而使用<code>@try/@catch</code>是为了防止插入一些不必要的<code>autoreleasepool</code>;所以基本可以认为<code>rac_keywordify</code>时间上就是<code>autoreleasepool{}</code>的宏替换,再加上前面的<code>@</code>,形成了<code>@autoreleasepool{}</code><br>再看<code>weakify</code>的第二行</p>
+<p><a href=""><strong>metamacro_foreach_cxt(rac_weakify_,, <strong>weak, </strong>VA_ARGS__)</strong></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define metamacro_foreach_cxt(MACRO, SEP, CONTEXT, ...) \</span><br><span class="line">metamacro_concat(metamacro_foreach_cxt, metamacro_argcount(__VA_ARGS__))(MACRO, SEP, CONTEXT, __VA_ARGS__)</span><br></pre></td></tr></table></figure>
+<p>先看<code>metamacro_concat</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#define metamacro_concat(A, B) \</span><br><span class="line">metamacro_concat_(A, B)</span><br><span class="line"></span><br><span class="line">#define metamacro_concat_(A, B) A ## B</span><br></pre></td></tr></table></figure>
+<p>经过套入后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define metamacro_foreach_cxt(MACRO, SEP, CONTEXT, ...) \</span><br><span class="line">metamacro_foreach_cxt##metamacro_argcount(__VA_ARGS__))(MACRO, SEP, CONTEXT, __VA_ARGS__)</span><br></pre></td></tr></table></figure>
+<p><code>__VA_ARGS__</code>是可变参数,获取<code>...</code>中传入的<code>N</code>个参数</p>
+<p>再看 <code>metamacro_argcount(__VA_ARGS__)</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define metamacro_argcount(...) \</span><br><span class="line">metamacro_at(20, __VA_ARGS__, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1)</span><br></pre></td></tr></table></figure>
+<p>这个宏的作用是用来获取参数的个数</p>
+<p><code>metamacro_at</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define metamacro_at(N, ...) \</span><br><span class="line">metamacro_concat(metamacro_at, N)(__VA_ARGS__)</span><br></pre></td></tr></table></figure>
+<p><strong>实现过程</strong></p>
+<p>拼接<code>metamacro_at ## N</code>(传入的第一个值,20)(<strong>VA_ARGS</strong>):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">metamacro_at20(__VA_ARGS__, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1)</span><br></pre></td></tr></table></figure>
+<p><code>metamacro_at20</code>它的实现:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define metamacro_at20(_0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, _17, _18, _19, ...) metamacro_head(__VA_ARGS__)</span><br></pre></td></tr></table></figure>
+<p>截取前20个数,剩下的传入<code>metamacro_head</code></p>
+<p><code>metamacro_head</code>定义:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#define metamacro_head(...) \</span><br><span class="line">metamacro_head_(__VA_ARGS__, 0)</span><br><span class="line"></span><br><span class="line">#define metamacro_head_(FIRST, ...) FIRST</span><br></pre></td></tr></table></figure>
+<p><code>metamacro_head</code>的作用是返回第一个参数.例如<code>@weakify(self)</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">metamacro_at20(self,20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1)</span><br></pre></td></tr></table></figure></p>
+<p>截取完后,就会变成<code>metamacro_head_(1)</code>,返回<code>1</code>.</p>
+<p>再回到最初的套入<code>##</code>的 <code>metamacro_foreach_cxt</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">metamacro_foreach_cxt##metamacro_argcount(__VA_ARGS__))(MACRO, SEP, CONTEXT, __VA_ARGS__)</span><br></pre></td></tr></table></figure></p>
+<p>接下来再套入:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">metamacro_foreach_cxt##N(MACRO, SEP, CONTEXT, __VA_ARGS__)</span><br></pre></td></tr></table></figure>
+<p>接着套入刚才的<code>@weakify(self)</code>的例子:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">metamacro_foreach_cxt1(MACRO, SEP, CONTEXT, __VA_ARGS__)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define metamacro_foreach_cxt1(MACRO, SEP, CONTEXT, _0) MACRO(0, CONTEXT, _0)</span><br></pre></td></tr></table></figure>
+<p>此时在传入之前的三个参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">metamacro_foreach_cxt(rac_weakify_,, __weak, __VA_ARGS__)</span><br></pre></td></tr></table></figure></p>
+<p>传入后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">metamacro_foreach_cxt1(rac_weakify_, , __weak, self) rac_weakify_(0,__weak,self)</span><br></pre></td></tr></table></figure></p>
+<p><code>N = 20</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#define metamacro_foreach_cxt20(MACRO, SEP, CONTEXT, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, _17, _18, _19) \</span><br><span class="line">metamacro_foreach_cxt19(MACRO, SEP, CONTEXT, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, _17, _18) \</span><br><span class="line">SEP \</span><br><span class="line">MACRO(19, CONTEXT, _19)</span><br></pre></td></tr></table></figure>
+<p>类似递归,先<code>rac_weakify_(0,__weak,_19)</code>,然后把前19个数传入 <code>metamacro_foreach_cxt19</code>,<code>metamacro_foreach_cxt19</code>会<code>rac_weakify_(0,__weak,_18)</code>,然后把前18个数传入<code>metamacro_foreach_cxt18</code> …直到 <code>metamacro_foreach_cxt1</code>.当<code>N=0</code>,不错任何操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define metamacro_foreach_cxt0(MACRO, SEP, CONTEXT)</span><br></pre></td></tr></table></figure>
+<p>再看<code>rac_weakify_</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define rac_weakify_(INDEX, CONTEXT, VAR) \</span><br><span class="line">CONTEXT __typeof__(VAR) metamacro_concat(VAR, _weak_) = (VAR);</span><br></pre></td></tr></table></figure>
+<p><code>INDEX</code>顾名思义是第几个的意思,只是一个标记,没有实际作用.例如<code>@weakify(self)</code>:<code>rac_weakify_(0,__weak,self)</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">__weak __typeof__ (self) self_weak_ = self;</span><br></pre></td></tr></table></figure>
+<p>而<code>self_weak_</code>就是弱化之后的<code>self</code>,这就是<code>@weakify(self)</code>的实现原理;</p>
+<p><code>@strongify</code>是加了一些警告,实现原理基本上是一样的;</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://clang.llvm.org/docs/AutomaticReferenceCounting.html" target="_blank" rel="noopener">Objective-C Automatic Reference Counting (ARC) — Clang 7 documentation</a><br><a href="https://www.tuicool.com/articles/MbiqQjY" target="_blank" rel="noopener">剖析@weakify、@strongify - 推酷</a><br><a href="http://ios.jobbole.com/88708/" target="_blank" rel="noopener">深入研究Block用weakSelf、strongSelf、@weakify、@strongify解决循环引用 - IOS - 伯乐在线</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/20/终端提交代码到github/" class="archive-article-date">
-  	<time datetime="2017-12-20T05:45:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/20/终端提交代码到github/">终端提交代码到github</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -552,20 +352,112 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/14/深入探讨Block循环引用/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/08/08/dealloc用法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          dealloc用法
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/07/10/盒子模型/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">盒子模型</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -589,8 +481,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

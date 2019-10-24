@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> OC调用Shell脚本 | 涂世坤的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="AppleScriptAppleScript是Mac OS X上的脚本语言,写好的脚本语言可以使用NSTask执行,而脚本本身可以做很多事情。编译器自带的Apple Script Editor就在应用程序下面,打开以后界面很简单,左上角四个键,录制,停止,运行,编译.中间是代码框,最下面是描述和系统的日志输出。">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" OC调用Shell脚本">
+<meta property="og:url" content="http://yoursite.com/2016/10/19/OC调用Shell脚本/index.html">
+<meta property="og:site_name" content="涂世坤的博客">
+<meta property="og:description" content="AppleScriptAppleScript是Mac OS X上的脚本语言,写好的脚本语言可以使用NSTask执行,而脚本本身可以做很多事情。编译器自带的Apple Script Editor就在应用程序下面,打开以后界面很简单,左上角四个键,录制,停止,运行,编译.中间是代码框,最下面是描述和系统的日志输出。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p1.bqimg.com/4851/699e4d26be528adf.png">
+<meta property="og:image" content="http://i1.piimg.com/4851/3707e19a23f9e958.png">
+<meta property="og:image" content="http://p1.bpimg.com/4851/1664802e8e47df8f.png">
+<meta property="og:updated_time" content="2016-11-21T02:28:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" OC调用Shell脚本">
+<meta name="twitter:description" content="AppleScriptAppleScript是Mac OS X上的脚本语言,写好的脚本语言可以使用NSTask执行,而脚本本身可以做很多事情。编译器自带的Apple Script Editor就在应用程序下面,打开以后界面很简单,左上角四个键,录制,停止,运行,编译.中间是代码框,最下面是描述和系统的日志输出。">
+<meta name="twitter:image" content="http://p1.bqimg.com/4851/699e4d26be528adf.png">
+  
+    <link rel="alternative" href="/atom.xml" title="涂世坤的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <script src="/style.js"></script>
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://upload.jianshu.io/users/upload_avatars/1944178/5c95d50c5d2c.gif?imageMogr/thumbnail/90x90/quality/100" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">涂世坤</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">保持学习</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives">概览</a></li>
+	        
+				<li><a href="/categories/OC">OC</a></li>
+	        
+				<li><a href="/categories/Other">其他</a></li>
+	        
+				<li><a href="/categories/Mac">Mac软件</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/ShikunTu" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="https://www.weibo.com/3491607200/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">涂世坤</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://upload.jianshu.io/users/upload_avatars/1944178/5c95d50c5d2c.gif?imageMogr/thumbnail/90x90/quality/100" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">涂世坤</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">保持学习</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">概览</a></li>
+		        
+					<li><a href="/categories/OC">OC</a></li>
+		        
+					<li><a href="/categories/Other">其他</a></li>
+		        
+					<li><a href="/categories/Mac">Mac软件</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ShikunTu" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="https://www.weibo.com/3491607200/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-OC调用Shell脚本" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+       OC调用Shell脚本
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="AppleScript"><a href="#AppleScript" class="headerlink" title="AppleScript"></a>AppleScript</h1><h5 id="AppleScript是Mac-OS-X上的脚本语言-写好的脚本语言可以使用NSTask执行-而脚本本身可以做很多事情。"><a href="#AppleScript是Mac-OS-X上的脚本语言-写好的脚本语言可以使用NSTask执行-而脚本本身可以做很多事情。" class="headerlink" title="AppleScript是Mac OS X上的脚本语言,写好的脚本语言可以使用NSTask执行,而脚本本身可以做很多事情。"></a>AppleScript是Mac OS X上的脚本语言,写好的脚本语言可以使用NSTask执行,而脚本本身可以做很多事情。</h5><h5 id="编译器自带的Apple-Script-Editor就在应用程序下面-打开以后界面很简单-左上角四个键-录制-停止-运行-编译-中间是代码框-最下面是描述和系统的日志输出。"><a href="#编译器自带的Apple-Script-Editor就在应用程序下面-打开以后界面很简单-左上角四个键-录制-停止-运行-编译-中间是代码框-最下面是描述和系统的日志输出。" class="headerlink" title="编译器自带的Apple Script Editor就在应用程序下面,打开以后界面很简单,左上角四个键,录制,停止,运行,编译.中间是代码框,最下面是描述和系统的日志输出。"></a>编译器自带的Apple Script Editor就在应用程序下面,打开以后界面很简单,左上角四个键,录制,停止,运行,编译.中间是代码框,最下面是描述和系统的日志输出。</h5><a id="more"></a>
+<h5 id="脚本文件语法也不需要我们学-直接照着例子来就行"><a href="#脚本文件语法也不需要我们学-直接照着例子来就行" class="headerlink" title="脚本文件语法也不需要我们学,直接照着例子来就行"></a>脚本文件语法也不需要我们学,直接照着例子来就行</h5><h3 id="示例1-让系统嗡一下"><a href="#示例1-让系统嗡一下" class="headerlink" title="示例1   让系统嗡一下"></a>示例1   让系统嗡一下</h3><p><em>AppleScript代码</em></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">beep</span></span><br></pre></td></tr></table></figure>
+<p>敲完运行，需要主语的是除了关键字和引号内部的字符，其他都不需要注意大小写，运行的时候会帮你格式化好</p>
+<h3 id="示例2-清除废纸篓"><a href="#示例2-清除废纸篓" class="headerlink" title="示例2  清除废纸篓"></a>示例2  清除废纸篓</h3><p><em>AppleScript代码</em></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tell</span> <span class="built_in">application</span> <span class="string">"Finder"</span></span><br><span class="line">	</span><br><span class="line">	empty <span class="keyword">the</span> trash</span><br><span class="line">	</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">tell</span></span><br></pre></td></tr></table></figure>
+<p>tell application是呼唤程序，然后程序卸载引号内，即让程序做什么，end tell是对程序的调用结束。empty the trash是finder的专属操作。</p>
+<h5 id="但是在项目中用到最多的还是直接调用shell的特性-其实一句话就完事"><a href="#但是在项目中用到最多的还是直接调用shell的特性-其实一句话就完事" class="headerlink" title="但是在项目中用到最多的还是直接调用shell的特性,其实一句话就完事"></a>但是在项目中用到最多的还是直接调用shell的特性,其实一句话就完事</h5><p><em>AppleScript代码</em></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span> shell<span class="built_in"> script </span><span class="string">"example A"</span></span><br></pre></td></tr></table></figure>
+<h5 id="需要注意的是-AppleScript默认的shell是去找-bin-sh-在xcode里面创建shell文件头文件也可以看到-而我们的终端则是-bin-bash-可能会出现在终端中可以运行-脚本中却说找不到命令的情况"><a href="#需要注意的是-AppleScript默认的shell是去找-bin-sh-在xcode里面创建shell文件头文件也可以看到-而我们的终端则是-bin-bash-可能会出现在终端中可以运行-脚本中却说找不到命令的情况" class="headerlink" title="需要注意的是,AppleScript默认的shell是去找/bin/sh(在xcode里面创建shell文件头文件也可以看到),而我们的终端则是/bin/bash,可能会出现在终端中可以运行,脚本中却说找不到命令的情况"></a>需要注意的是,AppleScript默认的shell是去找/bin/sh(在xcode里面创建shell文件头文件也可以看到),而我们的终端则是/bin/bash,可能会出现在终端中可以运行,脚本中却说找不到命令的情况</h5><p><img src="http://p1.bqimg.com/4851/699e4d26be528adf.png" alt=""></p>
+<h5 id="编译器的特点-应用程序可以替换"><a href="#编译器的特点-应用程序可以替换" class="headerlink" title="编译器的特点  应用程序可以替换"></a>编译器的特点  应用程序可以替换</h5><p><em>AppleScript代码</em></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tell</span> <span class="built_in">application</span> <span class="string">"Yaphets"</span></span><br></pre></td></tr></table></figure>
+<p>明显Yaphets在计算机上是找不到的,那么这时候会跳出窗口让你选择Yaphets代表的程序,并且替换,后续编写使用Yaphets会自动选择你刚刚替换的程序,而且下次打开编译器仍然保持</p>
+<p><img src="http://i1.piimg.com/4851/3707e19a23f9e958.png" alt=""></p>
+<h5 id="设置变量-set-规则和c类似"><a href="#设置变量-set-规则和c类似" class="headerlink" title="设置变量 set 规则和c类似"></a>设置变量 set 规则和c类似</h5><p><em>AppleScript代码</em></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">set</span> picPath <span class="keyword">to</span> <span class="string">"/documents"</span></span><br></pre></td></tr></table></figure>
+<p>定义以后,后续文本可以使用,也可以修改<br><em>AppleScript代码</em></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">set</span> DDd <span class="keyword">to</span> 1</span><br><span class="line"><span class="builtin-name">set</span> DDd <span class="keyword">to</span> <span class="string">"Hello world"</span></span><br><span class="line"><span class="builtin-name">set</span><span class="built_in"> aaa </span><span class="keyword">to</span> DDd</span><br><span class="line">display dialog aaa</span><br><span class="line">display dialog DDd</span><br><span class="line"><span class="builtin-name">set</span> DDd <span class="keyword">to</span> 1</span><br><span class="line">display dialog aaa</span><br><span class="line">display dialog DDd</span><br></pre></td></tr></table></figure>
+<p>dispaly dialog 会用一个对话框显示输出,拼接字符串用&amp;<br><img src="http://p1.bpimg.com/4851/1664802e8e47df8f.png" alt=""></p>
+<h3 id="程序调用脚本"><a href="#程序调用脚本" class="headerlink" title="程序调用脚本"></a>程序调用脚本</h3><h5 id="首先我们可以用NSAppleScript类直接运行脚本-可以用源码也可以用文件的形式-而且文件可以是源码也可以是编译好的"><a href="#首先我们可以用NSAppleScript类直接运行脚本-可以用源码也可以用文件的形式-而且文件可以是源码也可以是编译好的" class="headerlink" title="首先我们可以用NSAppleScript类直接运行脚本,可以用源码也可以用文件的形式,而且文件可以是源码也可以是编译好的"></a>首先我们可以用NSAppleScript类直接运行脚本,可以用源码也可以用文件的形式,而且文件可以是源码也可以是编译好的</h5><p><em>AppleScript代码</em></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">set</span> i <span class="keyword">to</span> 100</span><br></pre></td></tr></table></figure>
+<p>那么这里的脚本值就是100</p>
+<ul>
+<li>普通类型</li>
+</ul>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">NSAppleEventDescriptor <span class="number">*e</span>ventDescriptor = <span class="literal">nil</span>;  </span><br><span class="line">NSAppleScript *script = <span class="literal">nil</span>;  </span><br><span class="line">NSBundle <span class="number">*b</span>unlde = [NSBundle mainBundle];  </span><br><span class="line">NSString *scriptPath = [bunlde pathForResource:@<span class="string">"demo"</span>   </span><br><span class="line">                                                               ofType:@<span class="string">"scpt"</span>   </span><br><span class="line">                                                        inDirectory:nil];  </span><br><span class="line"><span class="keyword">if</span> (scriptPath)  </span><br><span class="line">&#123;  </span><br><span class="line">   <span class="built_in"> script </span>= [[NSAppleScirpt alloc] initWithContentsOfURL:[NSURL fileURLWithPath:scriptPath] error:nil];  </span><br><span class="line">    <span class="keyword">if</span> (script)  </span><br><span class="line">    &#123;  </span><br><span class="line">        eventDescriptor = [script executeAndReturnError:nil];  </span><br><span class="line">        <span class="keyword">if</span> (eventDescriptor)  </span><br><span class="line">        &#123;  </span><br><span class="line">            NSLog(@<span class="string">"%@"</span>, [eventDescriptor stringValue]);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是最简单的返回值,如果返回值是list(NSArray)或者record(NSDictionary),需要更加麻烦一点</p>
+<ul>
+<li>list 类型</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSAppleEventDescriptor</span> *e = [<span class="built_in">NSTask</span> gtm_runAppleScript:<span class="string">@"value"</span>];  </span><br><span class="line"><span class="keyword">int</span> count = [e numberOfItems];  </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= count; i++)  </span><br><span class="line">&#123;  </span><br><span class="line">    <span class="built_in">NSAppleEventDescriptor</span> *d = [e descriptorAtIndex:i];  </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, [d stringValue]);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>record类型</li>
+</ul>
+<p><em>AppleScript代码</em></p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">key1:</span><span class="number">1</span>, <span class="string">key2:</span><span class="number">2</span>, <span class="string">key3:</span><span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSAppleEventDescriptor</span> *e = [<span class="built_in">NSTask</span> gtm_runAppleScript:<span class="string">@"value"</span>];  </span><br><span class="line"><span class="comment">// 其实就返回一个record的话，count就是1  </span></span><br><span class="line"><span class="keyword">int</span> count = [e numberOfItems];  </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= count; i++)  </span><br><span class="line">&#123;  </span><br><span class="line">    <span class="built_in">NSAppleEventDescriptor</span> *d = [e descriptorAtIndex:i];  </span><br><span class="line">    <span class="comment">// 这里会是6条  </span></span><br><span class="line">    <span class="keyword">int</span> items = [d numberOfItems];  </span><br><span class="line">    <span class="built_in">NSMutableDictionary</span> *dic = [<span class="built_in">NSMutableDictionary</span> dictionary];  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= items; j +=<span class="number">2</span>)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="comment">// 前一条是key的名字  </span></span><br><span class="line">        <span class="built_in">NSAppleEventDescriptor</span> *dKey = [d descriptorAtIndex:j];  </span><br><span class="line">        <span class="built_in">NSString</span> *key = [dKey stringValue];  </span><br><span class="line">       <span class="comment">// 后一条是对应的值  </span></span><br><span class="line">        <span class="built_in">NSAppleEventDescriptor</span> *dValue = [d descriptorAtIndex:j+<span class="number">1</span>];  </span><br><span class="line">        <span class="built_in">NSString</span> *value = [dValue stringValue];  </span><br><span class="line">        [dic setObject:value forKey:key];  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/19/OC调用Shell脚本/" class="archive-article-date">
+  	<time datetime="2016-10-19T03:38:34.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-19</time>
+</a>
+      
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/other/">其他</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/10/19/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/14/chrome删除url/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">chrome删除url</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_tqq"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="OC调用Shell脚本" data-title=" OC调用Shell脚本" data-url="http://yoursite.com/2016/10/19/OC调用Shell脚本/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"tushizhan"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2019 涂世坤
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/ShikunTu">我的github</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.weibo.com/3491607200/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1">我的微博</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">这个人很帅&lt;br&gt;他什么都不想说&lt;br&gt;</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

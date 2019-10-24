@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Swift 3.0学习--常量和变量基本用法 | 涂世坤的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="常量和变量123456789101112常量: let声明,赋值后不可修改 let x = 10变量: var声明,赋值后可以修改 var y = 20常量变量选择: 声明类型时候建议声明let(不可变的安全),当需要改变的时候,编译器会提示改变,再改成var自动推导: 变量/常量的类型会根据右侧的代码执行结果,推导对应的类型热键: option + click    var x = 10 ---">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift 3.0学习--常量和变量基本用法">
+<meta property="og:url" content="http://yoursite.com/2017/02/21/Swift-3-0学习-常量和变量/index.html">
+<meta property="og:site_name" content="涂世坤的博客">
+<meta property="og:description" content="常量和变量123456789101112常量: let声明,赋值后不可修改 let x = 10变量: var声明,赋值后可以修改 var y = 20常量变量选择: 声明类型时候建议声明let(不可变的安全),当需要改变的时候,编译器会提示改变,再改成var自动推导: 变量/常量的类型会根据右侧的代码执行结果,推导对应的类型热键: option + click    var x = 10 ---">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-06-05T09:51:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift 3.0学习--常量和变量基本用法">
+<meta name="twitter:description" content="常量和变量123456789101112常量: let声明,赋值后不可修改 let x = 10变量: var声明,赋值后可以修改 var y = 20常量变量选择: 声明类型时候建议声明let(不可变的安全),当需要改变的时候,编译器会提示改变,再改成var自动推导: 变量/常量的类型会根据右侧的代码执行结果,推导对应的类型热键: option + click    var x = 10 ---">
+  
+    <link rel="alternative" href="/atom.xml" title="涂世坤的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <script src="/style.js"></script>
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://upload.jianshu.io/users/upload_avatars/1944178/5c95d50c5d2c.gif?imageMogr/thumbnail/90x90/quality/100" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">涂世坤</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">保持学习</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives">概览</a></li>
+	        
+				<li><a href="/categories/OC">OC</a></li>
+	        
+				<li><a href="/categories/Other">其他</a></li>
+	        
+				<li><a href="/categories/Mac">Mac软件</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/ShikunTu" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="https://www.weibo.com/3491607200/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">涂世坤</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://upload.jianshu.io/users/upload_avatars/1944178/5c95d50c5d2c.gif?imageMogr/thumbnail/90x90/quality/100" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">涂世坤</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">保持学习</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">概览</a></li>
+		        
+					<li><a href="/categories/OC">OC</a></li>
+		        
+					<li><a href="/categories/Other">其他</a></li>
+		        
+					<li><a href="/categories/Mac">Mac软件</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ShikunTu" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="https://www.weibo.com/3491607200/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Swift-3-0学习-常量和变量" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Swift 3.0学习--常量和变量基本用法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="常量和变量"><a href="#常量和变量" class="headerlink" title="常量和变量"></a>常量和变量</h4><figure class="highlight zephir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">常量: <span class="keyword">let</span>声明,赋值后不可修改 <span class="keyword">let</span> x = <span class="number">10</span></span><br><span class="line">变量: <span class="keyword">var</span>声明,赋值后可以修改 <span class="keyword">var</span> y = <span class="number">20</span></span><br><span class="line">常量变量选择: 声明类型时候建议声明<span class="keyword">let</span>(不可变的安全),当需要改变的时候,编译器会提示改变,再改成<span class="keyword">var</span></span><br><span class="line">自动推导: 变量/常量的类型会根据右侧的代码执行结果,推导对应的类型</span><br><span class="line">热键: option + click </span><br><span class="line">   <span class="keyword">var</span> x = <span class="number">10</span> ----&gt; Declaration <span class="keyword">var</span> x: <span class="keyword">Int</span></span><br><span class="line">   此<span class="keyword">Int</span>和OC中的NSIteger类似</span><br><span class="line">   <span class="keyword">let</span> y = <span class="number">10.5</span> ---&gt; Declaration <span class="keyword">let</span> y: <span class="keyword">Double</span></span><br><span class="line">   此<span class="keyword">Double</span>类似OC中的CGFloat</span><br><span class="line"></span><br><span class="line">运算: Swift没有隐式转换,而且不同类型之间不能进行运算</span><br><span class="line">类型: Swift中没有基本数据类型,都是结构体</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//问题</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">demo1</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">let</span> x = <span class="number">10</span></span><br><span class="line">		<span class="keyword">let</span> y = <span class="number">10.5</span></span><br><span class="line">		<span class="built_in">print</span>(x + y)</span><br><span class="line">		<span class="comment">//报错</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//解决1</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">demo2</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">let</span> x = <span class="number">10</span></span><br><span class="line">		<span class="keyword">let</span> y = <span class="number">10.5</span></span><br><span class="line">		<span class="built_in">print</span>(<span class="type">Double</span>(x) + y)</span><br><span class="line">		<span class="comment">//20.5</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//解决2</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">demo3</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">let</span> x = <span class="number">10</span></span><br><span class="line">		<span class="keyword">let</span> y = <span class="number">10.5</span></span><br><span class="line">		<span class="built_in">print</span>(x + (<span class="type">Int</span>)y)</span><br><span class="line">		<span class="comment">//20</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//解决3</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">demo3</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">let</span> x: <span class="type">Double</span> = <span class="number">10</span></span><br><span class="line">		<span class="keyword">let</span> y = <span class="number">10.5</span></span><br><span class="line">		<span class="built_in">print</span>(x + y)</span><br><span class="line">		<span class="comment">//20.5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/21/Swift-3-0学习-常量和变量/" class="archive-article-date">
+  	<time datetime="2017-02-21T09:44:28.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-21</time>
+</a>
+      
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/Swift/">Swift</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/03/07/Xcode本地化/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Xcode本地化
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/20/Swift-3-0学习与2.0的异同/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Swift 3.0学习--与2.0的异同</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_tqq"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Swift-3-0学习-常量和变量" data-title="Swift 3.0学习--常量和变量基本用法" data-url="http://yoursite.com/2017/02/21/Swift-3-0学习-常量和变量/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"tushizhan"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2019 涂世坤
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/ShikunTu">我的github</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.weibo.com/3491607200/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1">我的微博</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">这个人很帅&lt;br&gt;他什么都不想说&lt;br&gt;</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

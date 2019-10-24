@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>OC中字典用法总结 | 涂世坤的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="不可变字典对象(NSDictionary)创建及初始化12345678910111213dictionary:方法：创建字典dictionaryWithContentsOfFile:方法：将创建的字典内容设置为指定文件内容dictionaryWithContentsOfURL:方法：将创建的字典内容设置为指定url内容dictionaryWithDictionary:方法：用字典创建字典dicti">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OC中字典用法总结">
+<meta property="og:url" content="http://yoursite.com/2016/12/27/OC中字典用法总结/index.html">
+<meta property="og:site_name" content="涂世坤的博客">
+<meta property="og:description" content="不可变字典对象(NSDictionary)创建及初始化12345678910111213dictionary:方法：创建字典dictionaryWithContentsOfFile:方法：将创建的字典内容设置为指定文件内容dictionaryWithContentsOfURL:方法：将创建的字典内容设置为指定url内容dictionaryWithDictionary:方法：用字典创建字典dicti">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2016-12-27T05:37:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OC中字典用法总结">
+<meta name="twitter:description" content="不可变字典对象(NSDictionary)创建及初始化12345678910111213dictionary:方法：创建字典dictionaryWithContentsOfFile:方法：将创建的字典内容设置为指定文件内容dictionaryWithContentsOfURL:方法：将创建的字典内容设置为指定url内容dictionaryWithDictionary:方法：用字典创建字典dicti">
+  
+    <link rel="alternative" href="/atom.xml" title="涂世坤的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <script src="/style.js"></script>
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://upload.jianshu.io/users/upload_avatars/1944178/5c95d50c5d2c.gif?imageMogr/thumbnail/90x90/quality/100" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">涂世坤</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">保持学习</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives">概览</a></li>
+	        
+				<li><a href="/categories/OC">OC</a></li>
+	        
+				<li><a href="/categories/Other">其他</a></li>
+	        
+				<li><a href="/categories/Mac">Mac软件</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/ShikunTu" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="https://www.weibo.com/3491607200/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">涂世坤</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://upload.jianshu.io/users/upload_avatars/1944178/5c95d50c5d2c.gif?imageMogr/thumbnail/90x90/quality/100" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">涂世坤</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">保持学习</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">概览</a></li>
+		        
+					<li><a href="/categories/OC">OC</a></li>
+		        
+					<li><a href="/categories/Other">其他</a></li>
+		        
+					<li><a href="/categories/Mac">Mac软件</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ShikunTu" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="https://www.weibo.com/3491607200/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-OC中字典用法总结" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      OC中字典用法总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="不可变字典对象-NSDictionary"><a href="#不可变字典对象-NSDictionary" class="headerlink" title="不可变字典对象(NSDictionary)"></a>不可变字典对象(NSDictionary)</h3><h5 id="创建及初始化"><a href="#创建及初始化" class="headerlink" title="创建及初始化"></a>创建及初始化</h5><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">dictionary:</span>方法：创建字典</span><br><span class="line"><span class="symbol">dictionaryWithContentsOfFile:</span>方法：将创建的字典内容设置为指定文件内容</span><br><span class="line"><span class="symbol">dictionaryWithContentsOfURL:</span>方法：将创建的字典内容设置为指定url内容</span><br><span class="line"><span class="symbol">dictionaryWithDictionary:</span>方法：用字典创建字典</span><br><span class="line"><span class="symbol">dictionaryWithObject:</span>方法：创建具有一个键-值的字典　</span><br><span class="line"><span class="symbol">dictionaryWithObjects:</span>方法：创建具有多个键-值的字典</span><br><span class="line"><span class="symbol">dictionaryWithObjectsAndKeys:</span>方法：创建具有多个键-值的字典</span><br><span class="line"><span class="symbol">init:</span>方法：初始化字典</span><br><span class="line"><span class="symbol">initWithContentsOfFile:</span>方法：将初始化的字典内容设置为指定文件内容</span><br><span class="line"><span class="symbol">initWithContentsOfURL:</span>方法：将初始化的字典内容设置为指定url内容</span><br><span class="line"><span class="symbol">initWithDictionary:</span>方法：用字典初始化字典</span><br><span class="line"><span class="symbol">initWithObjects:</span>方法：初始化具有多个键-值的字典</span><br><span class="line"><span class="symbol">initWithObjectsAndKeys:</span>方法：初始化具有多个键-值的字典</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h5 id="访问键-值"><a href="#访问键-值" class="headerlink" title="访问键-值"></a>访问键-值</h5><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">objectForKey:</span>方法：返回键的值</span><br><span class="line"><span class="symbol">allKeys:</span>方法：返回所有的键</span><br><span class="line"><span class="symbol">allValue:</span>方法：返回所有的值</span><br><span class="line"><span class="symbol">allKeysForObject:</span>方法：返回值所对应的键</span><br><span class="line"><span class="symbol">keyEnumerator:</span>方法：将字典中所有的键放到NSEnumerator对象中</span><br><span class="line"><span class="symbol">objectEnumerator:</span>方法：将字典中所有的值放到一个NSEnumerator对象中</span><br></pre></td></tr></table></figure>
+<h5 id="文件的处理"><a href="#文件的处理" class="headerlink" title="文件的处理"></a>文件的处理</h5><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">fileCreationDate:</span>方法：文件创建日期</span><br><span class="line"><span class="symbol">fileModificationDate:</span>方法：文件修改的日期</span><br><span class="line"><span class="symbol">fileSize:</span>方法：文件的大小</span><br><span class="line"><span class="symbol">fileExtensionHidden:</span>方法：扩展名是否隐藏</span><br><span class="line"><span class="symbol">fileType:</span>方法：文件的类型</span><br><span class="line"><span class="symbol">fileGroupOwnerAccountID:</span>方法：文件所属组标识</span><br><span class="line"><span class="symbol">fileGroupOwnerAccountName:</span>方法：文件所属组名</span><br><span class="line"><span class="symbol">fileHFSCreatorCode:</span>方法：文件分层系统创建者编码</span><br><span class="line"><span class="symbol">fileHFSTypeCode:</span>方法：文件分层系统类型编码</span><br><span class="line"><span class="symbol">fileIsAppendOnly:</span>方法：文件是否只读</span><br><span class="line"><span class="symbol">fileIsImmutable:</span>方法：文件是否可变</span><br><span class="line"><span class="symbol">fileOwnerAccountID:</span>方法：文件所属人标识</span><br><span class="line"><span class="symbol">fileOwnerAccountName:</span>方法：文件所属人</span><br><span class="line"><span class="symbol">filePosixPermissions:</span>方法：权限</span><br><span class="line"><span class="symbol">fileSystemFileNumber:</span>方法：文件系统的文件编号</span><br><span class="line"><span class="symbol">fileSystemNumber:</span>方法：文件系统编号</span><br><span class="line"><span class="symbol">writeToFile:</span>方法：字典内容写入文件中</span><br><span class="line"><span class="symbol">writeToURL:</span>方法：字典内容写入url中</span><br></pre></td></tr></table></figure>
+<h5 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h5><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">count:</span>方法：字典键-值个数</span><br><span class="line"><span class="symbol">isEqualToDictionary:</span>方法：判断字典是否相等</span><br></pre></td></tr></table></figure>
+<h3 id="可变字典-NSMutableDictionary"><a href="#可变字典-NSMutableDictionary" class="headerlink" title="可变字典(NSMutableDictionary)"></a>可变字典(NSMutableDictionary)</h3><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">dictionaryWithCapacity:</span>方法：创建固定长度的可变字典</span><br><span class="line"><span class="symbol">initWithCapacity:</span>方法：初始化固定长度的可变字典</span><br><span class="line"><span class="symbol">setObject:</span>方法：设置键-值</span><br><span class="line"><span class="symbol">setDictionary:</span>方法：用字典设置可变字典中的内容</span><br><span class="line"><span class="symbol">removeAllObjects:</span>方法：删除所有的内容</span><br><span class="line"><span class="symbol">removeObjectForKey:</span>方法：删除键所对应的值</span><br><span class="line"><span class="symbol">removeObjectsForKeys:</span>方法：删除多个键所有的值</span><br><span class="line"><span class="symbol">addEntriesFromDictionary:</span>方法：将字典中的键-值添加到可变字典中</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/27/OC中字典用法总结/" class="archive-article-date">
+  	<time datetime="2016-12-27T05:26:59.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-27</time>
+</a>
+      
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/OC/">OC</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/12/28/NSLog的调试技巧/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          NSLog的调试技巧
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/27/OC中数组总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">OC中数组总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_tqq"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="OC中字典用法总结" data-title="OC中字典用法总结" data-url="http://yoursite.com/2016/12/27/OC中字典用法总结/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"tushizhan"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2019 涂世坤
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/ShikunTu">我的github</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.weibo.com/3491607200/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1">我的微博</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">这个人很帅&lt;br&gt;他什么都不想说&lt;br&gt;</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
